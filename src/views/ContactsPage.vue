@@ -4,8 +4,8 @@
 
   <div class="info">
       <div class="pagination">
-          <a href="main.html">Главная /</a>
-      </div>
+        <a href=""><router-link to="/">Главная /</router-link></a>
+    </div>
   </div>
   <div class="wrapper">
 
