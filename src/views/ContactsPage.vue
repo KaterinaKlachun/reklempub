@@ -1,57 +1,66 @@
 <template>
-  <meta name="description" content="Контактная информация компании Reklem." />
-  <!-- info -->
+<meta name="description" content="Контактная информация компании Reklem." />
 
-  <div class="info">
-      <div class="pagination">
-        <a href=""><router-link to="/">Главная /</router-link></a>
-    </div>
-  </div>
-  <div class="wrapper">
+<!-- info -->
 
-      <div class="cat">
-          <h1><span>Контакты</span></h1>
-          <p>Следует отметить, что разбавленное
-              изрядной долей эмпатии, рациональное
-              мышление требует определения и уточнения
-              прогресса профессионального сообщества.
-              Но глубокий уровень погружения влечет за
-              собой процесс внедрения и модернизации
-              глубокомысленных рассуждений.</p>
-      </div> 
-  </div>
-
-  <!-- contact -->
-
-  <div class="wrapper">
-      <div class="contact">
-          <div class="adress">
-              <h3>Адрес:</h3>
-              <div class="below">
-                  <p>Москва, м.Октябрьское поле, ул. Народного ополчения, д.34, стр.3, офис 8</p>
-              </div>
-          </div>
-          <div class="telephon">
-              <h3>Телефон:</h3>
-              <div class="below">
-                  <p>+7 (495) 226-26-61</p>
-                  <p>+7 (495) 133-16-28</p>
-              </div>
-          </div>
-          <div class="post">
-              <h3>Почта:</h3>
-              <div class="below">
-                  <p>info@reklem.ru</p>
-              </div>
-          </div>
+<div class="info">
+    <div class="pagination">
+          <a href=""><router-link to="/">Главная /</router-link></a>
       </div>
-  </div>
+</div>
 
-  <!-- intelligence -->
+<div class="wrapper">
 
-  <div class="wrapper">
+    <div class="cat">
+        <h1><span>Контакты</span></h1>
+        <p>Следует отметить, что разбавленное
+            изрядной долей эмпатии, рациональное
+            мышление требует определения и уточнения
+            прогресса профессионального сообщества.
+            Но глубокий уровень погружения влечет за
+            собой процесс внедрения и модернизации
+            глубокомысленных рассуждений.</p>
+    </div> 
+</div>
+
+<!-- contact -->
+
+<div class="wrapper">
+
+    <div class="contact">
+
+        <div class="adress">
+            <h3>Адрес:</h3>
+            <div class="below">
+                <p>Москва, м.Октябрьское поле, ул. Народного ополчения, д.34, стр.3, офис 8</p>
+            </div>
+        </div>
+
+        <div class="telephon">
+            <h3>Телефон:</h3>
+            <div class="below">
+                <p>+7 (495) 226-26-61</p>
+                <p>+7 (495) 133-16-28</p>
+            </div>
+        </div>
+
+        <div class="post">
+            <h3>Почта:</h3>
+            <div class="below">
+                <p>info@reklem.ru</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- intelligence -->
+
+<div class="wrapper">
 
   <div class="intelligence">
+
       <div class="left">
           <img src="@/assets/img/contacts/photo.svg" alt="photo">
           <div class="left_txt">
@@ -65,6 +74,7 @@
               </div>
           </div>
       </div>
+
       <div class="right">
           <div class="up_right">
               <p>Пн-Пт:</p>
@@ -78,18 +88,20 @@
           <img src="@/assets/img/contacts/facebook.svg" alt="facebook">
           <img src="@/assets/img/contacts/youtube.svg" alt="youtube">
       </div>
+
   </div>
       
+</div>
 
-  </div>
+<!-- map -->
 
-  <!-- map -->
-
-  <div class="wrapper">
+<div class="wrapper">
+    
     <div class="map">
       <img src="@/assets/img/contacts/map.svg" alt="">
     </div>
-  </div>
+
+</div>
 
 </template>
   
@@ -104,8 +116,8 @@
 /* info */
 
 .info{
-  height: 250px;
-  background-image: url('@/assets/img/news/back.svg');
+    height: 250px;
+    background-image: url('@/assets/img/news/back.svg');
 }
 
 /* contact */
