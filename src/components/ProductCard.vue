@@ -29,8 +29,7 @@
     align-items: center;    /* Выравниваем по центру по горизонтали */
     justify-content: center; /* Выравниваем по центру по вертикали */
     text-align: center;     /* Центруем текст внутри */
-    padding: 20px;
-    height: 350px;
+    height: 380px;
 }
 
 .product-title {

@@ -139,7 +139,7 @@ export default {
     color: #FFA630;
 }
 
-#product-art{
+#art{
     color: #10BB87;
 }
 
