@@ -100,7 +100,7 @@ export default {
       },
       {
         id: 6,
-        name: '"Кофейная пара прямой формы',
+        name: 'Кофейная пара прямой формы',
         article: '12345658',
         stock: 1478,
         colors: [
@@ -212,7 +212,7 @@ export default {
             { color: 'Голубой', image: require('@/assets/img/catalog/mugs/margo/blue.svg') },
             { color: 'Зеленый', image: require('@/assets/img/catalog/mugs/margo/green.svg') },
             { color: 'Серый', image: require('@/assets/img/catalog/mugs/margo/grey.svg') },
-            { color: 'Ораанжевый', image: require('@/assets/img/catalog/mugs/margo/orange.svg') },
+            { color: 'Оранжевый', image: require('@/assets/img/catalog/mugs/margo/orange.svg') },
             { color: 'Красный', image: require('@/assets/img/catalog/mugs/margo/red.svg') },
             { color: 'Желтый', image: require('@/assets/img/catalog/mugs/margo/yellow.svg') },
         ],
@@ -231,7 +231,7 @@ export default {
             { color: 'Белый с крошкой', image: require('@/assets/img/catalog/mugs/oreo/white.svg') },
             { color: 'Черный', image: require('@/assets/img/catalog/mugs/oreo/black.svg') },
             { color: 'Синий', image: require('@/assets/img/catalog/mugs/oreo/blue.svg') },
-            { color: 'Белый', image: require('@/assets/img/catalog/mugs/oreo/white.svg') },
+            { color: 'Белый', image: require('@/assets/img/catalog/mugs/oreo/white_2.svg') },
         ],
         price: 319,
         description: "«Oreo» — 	320 мл очаровательная кружка конусовидной формы, внутренняя часть\
@@ -350,10 +350,11 @@ export default {
         article: '96521463',
         stock: 1452,
         colors: [
-          { color: 'Зеленная', image: require('@/assets/img/catalog/thermoses/sense/green.svg') },
-          { color: 'Черная', image: require('@/assets/img/catalog/thermoses/sense/black.svg') },
-          { color: 'Красная', image: require('@/assets/img/catalog/thermoses/sense/red.svg') },
-          { color: 'Серебрянная', image: require('@/assets/img/catalog/thermoses/sense/silver.svg') },
+          { color: 'Зеленый', image: require('@/assets/img/catalog/thermoses/sense/green.svg') },
+          { color: 'Черный', image: require('@/assets/img/catalog/thermoses/sense/black.svg') },
+          { color: 'Красный', image: require('@/assets/img/catalog/thermoses/sense/red.svg') },
+          { color: 'Стальной', image: require('@/assets/img/catalog/thermoses/sense/silver.svg') },
+          { color: 'Оранжевый', image: require('@/assets/img/catalog/thermoses/sense/orange.svg') },
         ],
         price: 802,
         description: "Универсальная термокружка «Sense» понравится как любителям горячих напитков,\
@@ -667,7 +668,7 @@ export default {
         colors: [
           { color: 'Красный', image: require('@/assets/img/catalog/accessories/dao/red.svg') },
           { color: 'Зеленый', image: require('@/assets/img/catalog/accessories/dao/green.svg') },
-          { color: 'Серебрянный', image: require('@/assets/img/catalog/accessories/dao/silver.svg') },
+          { color: 'Стальной', image: require('@/assets/img/catalog/accessories/dao/silver.svg') },
         ],
         price: 86,
         description: "Брелок-открывалка «Dао» – функциональный промосувенир для \
