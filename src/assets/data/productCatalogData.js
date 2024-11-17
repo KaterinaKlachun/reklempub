@@ -622,9 +622,9 @@ export default {
         article: '78901234',
         stock: 500,
         colors: [
-          { color: 'Светло-коричневый', image: require('@/assets/img/catalog/accessories/alen/light_brown.svg') },
+          { color: 'Бежевый', image: require('@/assets/img/catalog/accessories/alen/beige.svg') },
           { color: 'Коричневый', image: require('@/assets/img/catalog/accessories/alen/brown.svg') },
-          { color: 'Рыжий', image: require('@/assets/img/catalog/accessories/alen/red.svg') },
+          { color: 'Темно-коричневый', image: require('@/assets/img/catalog/accessories/alen/dark_brown.svg') },
         ],
         price: 81,
         description: 'Брелок из материала, имитирующего нубук, приятный \
@@ -636,9 +636,9 @@ export default {
         article: '01457869',
         stock: 1025,
         colors: [
-          { color: 'Светло-коричневый', image: require('@/assets/img/catalog/accessories/alen_2/light_brown.svg') },
+          { color: 'Бежевый', image: require('@/assets/img/catalog/accessories/alen_2/beige.svg') },
           { color: 'Коричневый', image: require('@/assets/img/catalog/accessories/alen_2/brown.svg') },
-          { color: 'Рыжий', image: require('@/assets/img/catalog/accessories/alen_2/red.svg') },
+          { color: 'Темно-коричневый', image: require('@/assets/img/catalog/accessories/alen_2/dark_brown.svg') },
         ],
         price: 166,
         description: "Брелок из материала, имитирующего нубук, приятный \
@@ -655,6 +655,7 @@ export default {
           { color: 'Красный', image: require('@/assets/img/catalog/accessories/mondo/red.svg') },
           { color: 'Черный', image: require('@/assets/img/catalog/accessories/mondo/black.svg') },
           { color: 'Оранжевый', image: require('@/assets/img/catalog/accessories/mondo/orange.svg') },
+          { color: 'Синий', image: require('@/assets/img/catalog/accessories/mondo/blue.svg') },
         ],
         price: 187,
         description: "Квадратный брелок. Держите ваши ключи в безопасности \
@@ -669,6 +670,8 @@ export default {
           { color: 'Красный', image: require('@/assets/img/catalog/accessories/dao/red.svg') },
           { color: 'Зеленый', image: require('@/assets/img/catalog/accessories/dao/green.svg') },
           { color: 'Стальной', image: require('@/assets/img/catalog/accessories/dao/silver.svg') },
+          { color: 'Черный', image: require('@/assets/img/catalog/accessories/dao/black.svg') },
+          { color: 'Синий', image: require('@/assets/img/catalog/accessories/dao/blue.svg') },
         ],
         price: 86,
         description: "Брелок-открывалка «Dао» – функциональный промосувенир для \
@@ -682,7 +685,7 @@ export default {
         stock: 8745,
         colors: [
           { color: 'Белый', image: require('@/assets/img/catalog/accessories/kubik/white.svg') },
-          { color: 'Голубой', image: require('@/assets/img/catalog/accessories/kubik/blue.svg') },
+          { color: 'Синий', image: require('@/assets/img/catalog/accessories/kubik/blue.svg') },
           { color: 'Красный', image: require('@/assets/img/catalog/accessories/kubik/red.svg') },
           { color: 'Желтый', image: require('@/assets/img/catalog/accessories/kubik/yellow.svg') },
         ],
@@ -784,6 +787,7 @@ export default {
         stock: 1478,
         colors: [
           { color: 'Белый', image: require('@/assets/img/catalog/accessories/block/white.svg') },
+          { color: 'Черный', image: require('@/assets/img/catalog/accessories/block/black.svg') },
           { color: 'Зеленый', image: require('@/assets/img/catalog/accessories/block/green.svg') },
           { color: 'Желтый', image: require('@/assets/img/catalog/accessories/block/yellow.svg') },
         ],
@@ -889,7 +893,7 @@ export default {
         stock: 1023,
         colors: [
           { color: 'Белый', image: require('@/assets/img/catalog/stationery/pet_pen_pro/white.svg') },
-          { color: 'Голубой', image: require('@/assets/img/catalog/stationery/pet_pen_pro/blue.svg') },
+          { color: 'Синий', image: require('@/assets/img/catalog/stationery/pet_pen_pro/blue.svg') },
           { color: 'Красный', image: require('@/assets/img/catalog/stationery/pet_pen_pro/red.svg') },
         ],
         price: 177,
@@ -926,8 +930,16 @@ export default {
         stock: 1026,
         colors: [
           { color: 'Белый', image: require('@/assets/img/catalog/stationery/plane/white.svg') },
+          { color: 'Черный', image: require('@/assets/img/catalog/stationery/plane/black.svg') },
           { color: 'Голубой', image: require('@/assets/img/catalog/stationery/plane/blue.svg') },
+          { color: 'Синий', image: require('@/assets/img/catalog/stationery/plane/dark_blue.svg') },
+          { color: 'Серый', image: require('@/assets/img/catalog/stationery/plane/gray.svg') },
+          { color: 'Зеленый', image: require('@/assets/img/catalog/stationery/plane/green.svg') },
+          { color: 'Светло-синий', image: require('@/assets/img/catalog/stationery/plane/light_blue.svg') },
+          { color: 'Оранжевый', image: require('@/assets/img/catalog/stationery/plane/orange.svg') },
           { color: 'Фиолетовый', image: require('@/assets/img/catalog/stationery/plane/purple.svg') },
+          { color: 'Красный', image: require('@/assets/img/catalog/stationery/plane/red.svg') },
+          { color: 'Желтый', image: require('@/assets/img/catalog/stationery/plane/yellow.svg') },
         ],
         price: 40,
         description: "Элегантная пластиковая ручка идеально сочетающая гладкий клип из \
@@ -941,6 +953,7 @@ export default {
         stock: 1365,
         colors: [
           { color: 'Серый', image: require('@/assets/img/catalog/stationery/taper/grey.svg') },
+          { color: 'Зеленый', image: require('@/assets/img/catalog/stationery/taper/green.svg') },
           { color: 'Фиолетовый', image: require('@/assets/img/catalog/stationery/taper/purple.svg') },
           { color: 'Желтый', image: require('@/assets/img/catalog/stationery/taper/yellow.svg') },
         ],
@@ -1022,7 +1035,7 @@ export default {
         article: '02635887',
         stock: 1325,
         colors: [
-          { color: 'Голубой', image: require('@/assets/img/catalog/stationery/event/blue.svg') },
+          { color: 'Синий', image: require('@/assets/img/catalog/stationery/event/blue.svg') },
           { color: 'Черный', image: require('@/assets/img/catalog/stationery/event/black.svg') },
           { color: 'Серый', image: require('@/assets/img/catalog/stationery/event/grey.svg') },
         ],
@@ -1037,7 +1050,7 @@ export default {
         colors: [
           { color: 'Красный', image: require('@/assets/img/catalog/stationery/pocket/red.svg') },
           { color: 'Черный', image: require('@/assets/img/catalog/stationery/pocket/black.svg') },
-          { color: 'Голубой', image: require('@/assets/img/catalog/stationery/pocket/blue.svg') },
+          { color: 'Синий', image: require('@/assets/img/catalog/stationery/pocket/blue.svg') },
         ],
         price: 686,
         description: "Вес	- 280г. Плотность -	80 г/м2. Формат	- A5. Разлиновка - 80. Обложка	- твердая. \
@@ -1079,8 +1092,8 @@ export default {
         article: '20639832',
         stock: 1302,
         colors: [
-          { color: 'Зеленый', image: require('@/assets/img/catalog/stationery/rainbow_s/green.svg') },
-          { color: 'Голубой', image: require('@/assets/img/catalog/stationery/rainbow_s/blue.svg') },
+          { color: 'Лайм', image: require('@/assets/img/catalog/stationery/rainbow_s/lime.svg') },
+          { color: 'Синий', image: require('@/assets/img/catalog/stationery/rainbow_s/blue.svg') },
           { color: 'Красный', image: require('@/assets/img/catalog/stationery/rainbow_s/red.svg') },
         ],
         price: 175,
@@ -1107,7 +1120,7 @@ export default {
         article: '10256945',
         stock: 1236,
         colors: [
-          { color: 'Голубой', image: require('@/assets/img/catalog/stationery/priestly/blue.svg') },
+          { color: 'Синий', image: require('@/assets/img/catalog/stationery/priestly/blue.svg') },
           { color: 'Черный', image: require('@/assets/img/catalog/stationery/priestly/black.svg') },
           { color: 'Красный', image: require('@/assets/img/catalog/stationery/priestly/red.svg') },
         ],
