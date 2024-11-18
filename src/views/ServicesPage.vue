@@ -51,6 +51,10 @@ export default {
     margin-top: 5%;
 }
 
+.cat img{
+    width: 100%;
+}
+
 /* info */
 
 .info{

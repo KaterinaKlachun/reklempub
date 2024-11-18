@@ -120,6 +120,14 @@
     background-image: url('@/assets/img/news/back.svg');
 }
 
+.cat{
+    width: 100%;
+}
+
+.cat p{
+    margin-top: 10%;
+}
+
 /* contact */
 
 .contact{

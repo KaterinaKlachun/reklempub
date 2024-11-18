@@ -119,7 +119,7 @@ export default {
         colors: [
             { color: 'Красный', image: require('@/assets/img/catalog/mugs/nancy_line/red.svg') },
             { color: 'Черный', image: require('@/assets/img/catalog/mugs/nancy_line/black.svg') },
-            { color: 'Голубой', image: require('@/assets/img/catalog/mugs/nancy_line/blue.svg') },
+            { color: 'Синий', image: require('@/assets/img/catalog/mugs/nancy_line/blue.svg') },
         ],
         price: 294,
         description: "Кружка из костяного фарфора с выраженным рельефным ободком, окаймленным цветной\
@@ -387,7 +387,7 @@ export default {
         stock: 5263,
         colors: [
           { color: 'Белый', image: require('@/assets/img/catalog/thermoses/guard/white.svg') },
-          { color: 'черный', image: require('@/assets/img/catalog/thermoses/guard/black.svg') },
+          { color: 'Черный', image: require('@/assets/img/catalog/thermoses/guard/black.svg') },
           { color: 'Голубой', image: require('@/assets/img/catalog/thermoses/guard/blue.svg') },
         ],
         price: 1392,
@@ -898,9 +898,9 @@ export default {
         ],
         price: 177,
         description: "Автоматическая шариковая ручка, изготовленная из переработанного, \
-        антибактериального материала rPET, с тонированным покрытием. Антимикробная добавка, \
+        антибактериального материала PET, с тонированным покрытием. Антимикробная добавка, \
         изготовленная из ионов серебра, протестированная в соответствии с ISO 22196:2011, \
-        придает rPET антибактериальный эффект, снижающий оседание бактерий или патогенов \
+        придает PET антибактериальный эффект, снижающий оседание бактерий или патогенов \
         на поверхности пишущего инструмента на 99,99%. Переработанный ПЭТ, изготовленный \
         из переработанных бутылок в Европе, очень долговечный и прочный материал. \
         Переработанная ручка PET PEN PRO предлагает несколько сильных аргументов для \

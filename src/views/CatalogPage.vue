@@ -17,7 +17,6 @@
               погружения влечет за собой процесс внедрения и модернизации
               глубокомысленных рассуждений.</p>
       </div> 
-      <button class="button_details">Подробнее</button> 
 
   </div>
 
@@ -56,7 +55,7 @@ import ProductCard from "@/components/ProductCard.vue";
 import productsData from "@/assets/data/products.js";
 
 export default {
-  name: 'CatalogPage',
+  name: "CatalogPage",
   components: {
     Category,
     ProductCard,
@@ -70,8 +69,9 @@ export default {
         chancellery: { name: "Канцелярия", image: require("@/assets/img/catalog/icon_kanc.svg") },
       },
       displayedProducts: [],
-      selectedCategory: "mugs",
+      selectedCategory: "mugs", // Категория по умолчанию
       productsData,
+      scrollPosition: 0, // Для сохранения уровня прокрутки
     };
   },
   methods: {
@@ -80,20 +80,61 @@ export default {
       this.displayedProducts = this.productsData[category] || [];
     },
     viewProduct(index) {
-  const category = this.selectedCategory;
-  this.$router.push({
-    name: 'ProductPage',
-    params: { category, id: index + 1 }, // Убедитесь, что `id` соответствует индексу продукта
-  });
-}
+      // Сохраняем текущее состояние перед переходом
+      this.saveState();
+      const category = this.selectedCategory;
+      this.$router.push({
+        name: "ProductPage",
+        params: { category, id: index + 1 },
+      });
+    },
+    saveState() {
+      // Сохраняем текущую категорию и позицию прокрутки
+      sessionStorage.setItem(
+        "catalogState",
+        JSON.stringify({
+          selectedCategory: this.selectedCategory,
+          scrollPosition: window.scrollY,
+        })
+      );
+    },
+    restoreState() {
+      // Восстанавливаем состояние из sessionStorage
+      const savedState = JSON.parse(sessionStorage.getItem("catalogState"));
+      if (savedState) {
+        this.selectedCategory = savedState.selectedCategory || "mugs";
+        this.scrollPosition = savedState.scrollPosition || 0;
+      }
+      this.loadProducts(this.selectedCategory); // Загружаем продукты для сохраненной категории
+      this.$nextTick(() => {
+        // Прокручиваем страницу к сохраненной позиции
+        window.scrollTo(0, this.scrollPosition);
+      });
+    },
+    resetToDefault() {
+      // Возвращаем категорию по умолчанию при обновлении
+      this.selectedCategory = "mugs";
+      this.scrollPosition = 0;
+      this.loadProducts(this.selectedCategory);
+      window.scrollTo(0, 0);
+    },
   },
   created() {
-    this.loadProducts(this.selectedCategory);
+    if (performance.navigation.type === 1) {
+      // Если страница обновляется
+      this.resetToDefault();
+    } else {
+      this.restoreState(); // Иначе восстанавливаем предыдущее состояние
+    }
+  },
+  beforeRouteLeave(to, from, next) {
+    this.saveState(); // Сохраняем состояние перед уходом
+    next();
   },
 };
 </script>
 
-  <style scoped>
+<style scoped>
 /* info */
 
 .info{
@@ -101,25 +142,10 @@ export default {
     background-image: url('@/assets/img/catalog/info_back.svg');
 }
 
-.button_details{
-    position: absolute;
-    top: 90%;
-    right: 7%;
-    padding: 15px 50px;
-    background-color: #00b894;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 12px;
-    font-family: bold;
-    height: 40px;
-}
-
 /* categories */
 
 .categories{
-    margin-top: 35%;
+    margin-top: 25%;
 }
 
 .categories p{
