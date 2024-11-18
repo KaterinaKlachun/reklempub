@@ -36,7 +36,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="css">
 
 @font-face {
   font-family: "bold";
