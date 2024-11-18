@@ -1,27 +1,23 @@
 <template>
-  
   <!-- info -->
-
   <div class="info">
-      <div class="pagination">
-          <a href=""><router-link to="/">Главная /</router-link></a>
-      </div>
+    <div class="pagination">
+      <a href=""><router-link to="/">Главная /</router-link></a>
+    </div>
   </div>
   <div class="wrapper">
-
-      <div class="cat">
-          <h1><span>Каталог</span></h1>
-          <p>Следует отметить, что разбавленное изрядной долей эмпатии,
-              рациональное мышление требует определения и уточнения
-              прогресса профессионального сообщества. Но глубокий уровень
-              погружения влечет за собой процесс внедрения и модернизации
-              глубокомысленных рассуждений.</p>
-      </div> 
-
+    <div class="cat">
+      <h1><span>Каталог</span></h1>
+      <p>
+        Следует отметить, что разбавленное изрядной долей эмпатии, рациональное мышление требует определения и
+        уточнения прогресса профессионального сообщества. Но глубокий уровень погружения влечет за собой процесс
+        внедрения и модернизации глубокомысленных рассуждений.
+      </p>
+    </div>
   </div>
 
- <!-- categories -->
- <div class="wrapper">
+  <!-- categories -->
+  <div class="wrapper">
     <div class="categories">
       <p>Категории</p>
       <div class="category">
@@ -46,9 +42,9 @@
         @click="viewProduct(index)"
       />
     </div>
- </div>
+  </div>
 </template>
-  
+
 <script>
 import Category from "@/components/CategoryPage.vue";
 import ProductCard from "@/components/ProductCard.vue";
@@ -104,6 +100,9 @@ export default {
       if (savedState) {
         this.selectedCategory = savedState.selectedCategory || "mugs";
         this.scrollPosition = savedState.scrollPosition || 0;
+      } else {
+        // Если сохранённого состояния нет
+        this.resetToDefault();
       }
       this.loadProducts(this.selectedCategory); // Загружаем продукты для сохраненной категории
       this.$nextTick(() => {
