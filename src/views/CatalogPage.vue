@@ -67,7 +67,6 @@ export default {
       displayedProducts: [],
       selectedCategory: "mugs", // Категория по умолчанию
       productsData,
-      scrollPosition: 0, // Для сохранения уровня прокрутки
     };
   },
   methods: {
@@ -76,59 +75,16 @@ export default {
       this.displayedProducts = this.productsData[category] || [];
     },
     viewProduct(index) {
-      // Сохраняем текущее состояние перед переходом
-      this.saveState();
       const category = this.selectedCategory;
       this.$router.push({
         name: "ProductPage",
         params: { category, id: index + 1 },
       });
     },
-    saveState() {
-      // Сохраняем текущую категорию и позицию прокрутки
-      sessionStorage.setItem(
-        "catalogState",
-        JSON.stringify({
-          selectedCategory: this.selectedCategory,
-          scrollPosition: window.scrollY,
-        })
-      );
-    },
-    restoreState() {
-      // Восстанавливаем состояние из sessionStorage
-      const savedState = JSON.parse(sessionStorage.getItem("catalogState"));
-      if (savedState) {
-        this.selectedCategory = savedState.selectedCategory || "mugs";
-        this.scrollPosition = savedState.scrollPosition || 0;
-      } else {
-        // Если сохранённого состояния нет
-        this.resetToDefault();
-      }
-      this.loadProducts(this.selectedCategory); // Загружаем продукты для сохраненной категории
-      this.$nextTick(() => {
-        // Прокручиваем страницу к сохраненной позиции
-        window.scrollTo(0, this.scrollPosition);
-      });
-    },
-    resetToDefault() {
-      // Возвращаем категорию по умолчанию при обновлении
-      this.selectedCategory = "mugs";
-      this.scrollPosition = 0;
-      this.loadProducts(this.selectedCategory);
-      window.scrollTo(0, 0);
-    },
   },
   created() {
-    if (performance.navigation.type === 1) {
-      // Если страница обновляется
-      this.resetToDefault();
-    } else {
-      this.restoreState(); // Иначе восстанавливаем предыдущее состояние
-    }
-  },
-  beforeRouteLeave(to, from, next) {
-    this.saveState(); // Сохраняем состояние перед уходом
-    next();
+    // Загружаем продукты для категории по умолчанию
+    this.loadProducts(this.selectedCategory);
   },
 };
 </script>
@@ -137,14 +93,14 @@ export default {
 /* info */
 
 .info{
-    height: 768px;
+    height: 610px;
     background-image: url('@/assets/img/catalog/info_back.svg');
 }
 
 /* categories */
 
 .categories{
-    margin-top: 25%;
+    margin-top: 20%;
 }
 
 .categories p{
