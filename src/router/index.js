@@ -1,13 +1,14 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-// Ленивый импорт для страниц с добавлением компонентов для загрузки и ошибок
-const HomePage = () => import('../views/HomePage.vue');
-const AboutPage = () => import('../views/AboutPage.vue');
-const CatalogPage = () => import('../views/CatalogPage.vue');
-const ContactsPage = () => import('../views/ContactsPage.vue');
-const NewsPage = () => import('../views/NewsPage.vue');
-const PortfolioPage = () => import('../views/PortfolioPage.vue');
-const ServicesPage = () => import('../views/ServicesPage.vue');
+// Синхронный импорт всех компонентов
+import HomePage from '../views/HomePage.vue';
+import AboutPage from '../views/AboutPage.vue';
+import CatalogPage from '../views/CatalogPage.vue';
+import ContactsPage from '../views/ContactsPage.vue';
+import NewsPage from '../views/NewsPage.vue';
+import PortfolioPage from '../views/PortfolioPage.vue';
+import ServicesPage from '../views/ServicesPage.vue';
+import ProductPage from '../views/ProductPage.vue';
 
 const routes = [
   { path: '/', component: HomePage },
@@ -17,11 +18,10 @@ const routes = [
   { path: '/news', component: NewsPage },
   { path: '/portfolio', component: PortfolioPage },
   { path: '/services', component: ServicesPage },
-  // Применение ленивой загрузки для ProductPage
   {
     path: '/product/:category/:id',
     name: 'ProductPage',
-    component: () => import('../views/ProductPage.vue'), // Ленивый импорт
+    component: ProductPage,
     props: true,
   },
 ];
@@ -35,7 +35,7 @@ const router = createRouter({
     } else {
       return { top: 0 }; // Перемещаемся в верхнюю часть страницы
     }
-  }
+  },
 });
 
 export default router;

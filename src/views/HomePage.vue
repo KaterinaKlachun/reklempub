@@ -27,7 +27,7 @@
           <button class="company_button" @click="goToAbout">О компании</button>
         </div>
         <div class="right">
-          <img src="@/assets/img/main/key_cup.svg" loading="lazy" alt="Клавиатура и кружка">
+          <img src="@/assets/img/main/key_cup.svg" alt="Клавиатура и кружка">
         </div>
       </section>
     </div>
@@ -39,21 +39,21 @@
 
   <section class="about_2">
       <div class="card_about">
-          <img src="@/assets/img/main/timer.svg" loading="lazy" alt="Икона таймера">
+          <img src="@/assets/img/main/timer.svg" alt="Икона таймера">
           <p>Принт за 24 часа</p>
           <p id="opis">Некоторые заказы можем<br>
               произвести быстрее<br>
               суток</p>
       </div>
       <div class="card_about">
-          <img src="@/assets/img/main/flash.svg" loading="lazy" alt="Иконка молнии">
+          <img src="@/assets/img/main/flash.svg" alt="Иконка молнии">
           <p>Быстрая доставка</p>
           <p id="opis">Сотрудничаем с<br>
               быстрыми и надежными<br>
               службами</p>
       </div>
       <div class="card_about">
-          <img src="@/assets/img/main/box.svg" loading="lazy" alt="Иконка опта">
+          <img src="@/assets/img/main/box.svg" alt="Иконка опта">
           <p>Только ОПТ</p>
           <p id="opis">Работаем на большие<br>
               объемы брендинга</p>
@@ -73,7 +73,7 @@
         <div class="cards">
         <!-- Отображаем товары с помощью v-for -->
             <div class="card" v-for="(product, index) in randomProducts" :key="index">
-                <img :src="product.imgSrc" loading="lazy" alt="Картинка продукта" />
+                <img :src="product.imgSrc" alt="Картинка продукта" />
                 <p class="product-name">{{ product.name }}</p>
                 <div class="card_footer_catalog">
                     <!-- Кнопка для перехода на страницу товара -->
@@ -95,7 +95,7 @@
 
     <div class="service_cards">
         <div class="service_card">
-            <img src="@/assets/img/main/gravir.svg" loading="lazy" alt="Иконка гравировки">
+            <img src="@/assets/img/main/gravir.svg" alt="Иконка гравировки">
             <p id="service_card_heading">Гравировка</p>
             <p>Нанесем на изделия логотип, рисунок или надпись</p>
             <div class="card_footer_service">
@@ -103,7 +103,7 @@
             </div>
         </div>
         <div class="service_card">
-            <img src="@/assets/img/main/shlefov.svg" loading="lazy" alt="Иконка шелкографии">
+            <img src="@/assets/img/main/shlefov.svg" alt="Иконка шелкографии">
             <p id="service_card_heading">Шелкография</p>
             <p>Изображения высоко качества на любых материалах</p>
             <div class="card_footer_service">
@@ -111,7 +111,7 @@
             </div>
         </div>
         <div class="service_card">
-            <img src="@/assets/img/main/tisnen.svg" loading="lazy" alt="Иконка теснения">
+            <img src="@/assets/img/main/tisnen.svg" alt="Иконка теснения">
             <p id="service_card_heading">Тиснение</p>
             <p>Нанесения рельефного рисунка</p>
             <div class="card_footer_service">
@@ -119,7 +119,7 @@
             </div>
         </div>
         <div class="service_card">
-            <img src="@/assets/img/main/tampo.svg" loading="lazy" alt="Иконка тампопечати">
+            <img src="@/assets/img/main/tampo.svg" alt="Иконка тампопечати">
             <p id="service_card_heading">Тампопечать</p>
             <p>Перенос изображения с помощью силиконового валика</p>
             <div class="card_footer_service">
@@ -146,19 +146,19 @@
     </div>
     <div class="category_icon">
         <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_krysh.svg" loading="lazy" alt="Икнока кружек">
+            <img src="@/assets/img/catalog/icon_krysh.svg" alt="Икнока кружек">
             <p>Кружки</p>
         </div>
         <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_termos.svg" loading="lazy" alt="Иконка термосов">
+            <img src="@/assets/img/catalog/icon_termos.svg" alt="Иконка термосов">
             <p>Термосы</p>
         </div>
         <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_aksesyar.svg" loading="lazy" alt="Иконка аксессуаров">
+            <img src="@/assets/img/catalog/icon_aksesyar.svg" alt="Иконка аксессуаров">
             <p>Аксессуары</p>
         </div>
         <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_kanc.svg" loading="lazy" alt="Иконка канцелярии">
+            <img src="@/assets/img/catalog/icon_kanc.svg" alt="Иконка канцелярии">
             <p>Канцелярия</p>
         </div>
     </div>
@@ -170,7 +170,7 @@
 
 <div class="company">
     <!-- Первая кнопка "Больше отзывов" -->
-    <button class="button_reviews">Больше отзывов <img src="@/assets/img/main/review.svg" loading="lazy" alt="Иконка отзывов"></button>
+    <button class="button_reviews">Больше отзывов <img src="@/assets/img/main/review.svg" alt="Иконка отзывов"></button>
 
     <!-- Вторая кнопка "Подробнее" -->
     <button class="button_details" @click="goToPortfolio">Подробнее</button>
@@ -199,7 +199,7 @@
             </div>
         </div>
         <div class="button_container">
-            <button @click="goToNews">Все новости<img src="@/assets/img/main/new.svg" loading="lazy" alt="Иконка нововстей"></button>
+            <button @click="goToNews">Все новости<img src="@/assets/img/main/new.svg" alt="Иконка нововстей"></button>
         </div>
     </div>
 </div>
