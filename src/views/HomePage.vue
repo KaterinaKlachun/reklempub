@@ -27,7 +27,7 @@
           <button class="company_button" @click="goToAbout">О компании</button>
         </div>
         <div class="right">
-          <img src="@/assets/img/main/key_cup.svg" alt="Клавиатура и кружка">
+          <img src="@/assets/img/main/key_cup.svg" loading="lazy" alt="Клавиатура и кружка">
         </div>
       </section>
     </div>
@@ -39,21 +39,21 @@
 
   <section class="about_2">
       <div class="card_about">
-          <img src="@/assets/img/main/timer.svg" alt="Икона таймера">
+          <img src="@/assets/img/main/timer.svg" loading="lazy" alt="Икона таймера">
           <p>Принт за 24 часа</p>
           <p id="opis">Некоторые заказы можем<br>
               произвести быстрее<br>
               суток</p>
       </div>
       <div class="card_about">
-          <img src="@/assets/img/main/flash.svg" alt="Иконка молнии">
+          <img src="@/assets/img/main/flash.svg" loading="lazy" alt="Иконка молнии">
           <p>Быстрая доставка</p>
           <p id="opis">Сотрудничаем с<br>
               быстрыми и надежными<br>
               службами</p>
       </div>
       <div class="card_about">
-          <img src="@/assets/img/main/box.svg" alt="Иконка опта">
+          <img src="@/assets/img/main/box.svg" loading="lazy" alt="Иконка опта">
           <p>Только ОПТ</p>
           <p id="opis">Работаем на большие<br>
               объемы брендинга</p>
@@ -73,7 +73,7 @@
         <div class="cards">
         <!-- Отображаем товары с помощью v-for -->
             <div class="card" v-for="(product, index) in randomProducts" :key="index">
-                <img :src="product.imgSrc" alt="Картинка продукта" />
+                <img :src="product.imgSrc" loading="lazy" alt="Картинка продукта" />
                 <p class="product-name">{{ product.name }}</p>
                 <div class="card_footer_catalog">
                     <!-- Кнопка для перехода на страницу товара -->
@@ -95,7 +95,7 @@
 
     <div class="service_cards">
         <div class="service_card">
-            <img src="@/assets/img/main/gravir.svg" alt="Иконка гравировки">
+            <img src="@/assets/img/main/gravir.svg" loading="lazy" alt="Иконка гравировки">
             <p id="service_card_heading">Гравировка</p>
             <p>Нанесем на изделия логотип, рисунок или надпись</p>
             <div class="card_footer_service">
@@ -103,7 +103,7 @@
             </div>
         </div>
         <div class="service_card">
-            <img src="@/assets/img/main/shlefov.svg" alt="Иконка шелкографии">
+            <img src="@/assets/img/main/shlefov.svg" loading="lazy" alt="Иконка шелкографии">
             <p id="service_card_heading">Шелкография</p>
             <p>Изображения высоко качества на любых материалах</p>
             <div class="card_footer_service">
@@ -111,7 +111,7 @@
             </div>
         </div>
         <div class="service_card">
-            <img src="@/assets/img/main/tisnen.svg" alt="Иконка теснения">
+            <img src="@/assets/img/main/tisnen.svg" loading="lazy" alt="Иконка теснения">
             <p id="service_card_heading">Тиснение</p>
             <p>Нанесения рельефного рисунка</p>
             <div class="card_footer_service">
@@ -119,7 +119,7 @@
             </div>
         </div>
         <div class="service_card">
-            <img src="@/assets/img/main/tampo.svg" alt="Иконка тампопечати">
+            <img src="@/assets/img/main/tampo.svg" loading="lazy" alt="Иконка тампопечати">
             <p id="service_card_heading">Тампопечать</p>
             <p>Перенос изображения с помощью силиконового валика</p>
             <div class="card_footer_service">
@@ -146,19 +146,19 @@
     </div>
     <div class="category_icon">
         <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_krysh.svg" alt="Икнока кружек">
+            <img src="@/assets/img/catalog/icon_krysh.svg" loading="lazy" alt="Икнока кружек">
             <p>Кружки</p>
         </div>
         <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_termos.svg" alt="Иконка термосов">
+            <img src="@/assets/img/catalog/icon_termos.svg" loading="lazy" alt="Иконка термосов">
             <p>Термосы</p>
         </div>
         <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_aksesyar.svg" alt="Иконка аксессуаров">
+            <img src="@/assets/img/catalog/icon_aksesyar.svg" loading="lazy" alt="Иконка аксессуаров">
             <p>Аксессуары</p>
         </div>
         <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_kanc.svg" alt="Иконка канцелярии">
+            <img src="@/assets/img/catalog/icon_kanc.svg" loading="lazy" alt="Иконка канцелярии">
             <p>Канцелярия</p>
         </div>
     </div>
@@ -170,7 +170,7 @@
 
 <div class="company">
     <!-- Первая кнопка "Больше отзывов" -->
-    <button class="button_reviews">Больше отзывов <img src="@/assets/img/main/review.svg" alt="Иконка отзывов"></button>
+    <button class="button_reviews">Больше отзывов <img src="@/assets/img/main/review.svg" loading="lazy" alt="Иконка отзывов"></button>
 
     <!-- Вторая кнопка "Подробнее" -->
     <button class="button_details" @click="goToPortfolio">Подробнее</button>
@@ -199,7 +199,7 @@
             </div>
         </div>
         <div class="button_container">
-            <button @click="goToNews">Все новости<img src="@/assets/img/main/new.svg" alt="Иконка нововстей"></button>
+            <button @click="goToNews">Все новости<img src="@/assets/img/main/new.svg" loading="lazy" alt="Иконка нововстей"></button>
         </div>
     </div>
 </div>
@@ -330,30 +330,30 @@ export default {
 /* Main Banner */
 
 .main-banner {
-    display: flex;
-    height: 768px;
-    width: 100%;
     background-image: url('@/assets/img/main/background.svg');
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;  
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* Адаптация по пропорциям картинки */
+    position: relative;
+    padding-top: calc(100% * (768 / 1920)); /* height и width пропорции картинки */
 }
 
 .txt {
-    position: absolute;       /* Позволяет разместить элемент в произвольном месте */
-    top: 35%;                 /* Смещение от верхней части секции */
-    left: 50%;                /* Смещение от левой части секции */
-    transform: translate(-50%, -50%); /* Центрирование блока относительно его размера */
-    text-align: center;       /* Центрирование текста внутри блока */
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-.main-banner h1{
+.main-banner h1 {
     font-family: bold;
     font-size: 36px;
     line-height: 44px;
 }
 
-.txt_banner{
+.txt_banner {
     font-family: regular;
     font-size: 14px;
     margin-top: 10%;
@@ -365,9 +365,9 @@ export default {
     text-decoration-color: #FFA630; /* Цвет подчеркивания */
 }
 
-.catalog{
-    width: 171px;
-    height: 40px;
+.catalog {
+    width: 250px;
+    height: 50px;
     background-color: #10BB87;
     border: none;
     border-radius: 10px;
@@ -376,6 +376,14 @@ export default {
     font-family: bold;
     font-size: 12px;
 }
+
+/* Медиа-запросы на больших экранах для текста */
+@media screen and (min-width: 1920px) {
+    .txt {
+        top: 40%;
+    }
+}
+
 
 /* About Us */
 
@@ -623,8 +631,7 @@ export default {
     background-image: url('@/assets/img/main/company.svg'); /* Путь к вашему изображению */
     background-size: cover;
     background-position: center;
-    width: 1500px;
-    height: 577px;
+    padding-top: calc(100% * (577 / 1920));
     position: relative;
     display: flex;
     justify-content: center;
@@ -634,7 +641,7 @@ export default {
 .button_reviews {
     position: absolute;
     top: 30%; /* Настройте отступ сверху */
-    right: 1%; /* Настройте отступ справа */
+    right: 25%; /* Настройте отступ справа */
     padding: 5px 40px;
     background-color: white;
     color: black;
@@ -661,7 +668,7 @@ export default {
 .button_details {
     position: absolute;
     bottom: -5%; /* Настройте отступ снизу */
-    left: 73%;
+    left: 56%;
     transform: translateX(-50%);
     padding: 10px 20px;
     background-color: #00b894;
@@ -671,7 +678,8 @@ export default {
     cursor: pointer;
     font-size: 12px;
     font-family: bold;
-    height: 40px;
+    width: 170px;
+    height: 60px;
 }
 
 .button_details:hover {
@@ -722,6 +730,7 @@ export default {
 }
 
 .button_container button{
+    width: 200px;
     margin-top: 5%;
     border: 2px #00997a solid;
     background-color: white;

@@ -3,9 +3,6 @@
 <!-- info -->
 
 <div class="info">
-    <div class="pagination">
-          <a href=""><router-link to="/">Главная /</router-link></a>
-    </div>
 </div>
 
 <div class="wrapper">
@@ -129,8 +126,12 @@
 /* info */
 
 .info{
-    height: 590px;
+    display: flex;
     background-image: url('@/assets/img/about/back.svg');
+    background-size: cover;
+    background-position: center center;
+    padding-top: calc(100% * (535 / 1920)); /* height и width пропорции картинки */
+    position: absolute;
 }
 
 /* partners */
