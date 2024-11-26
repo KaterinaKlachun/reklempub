@@ -3,10 +3,8 @@
   <!-- info -->
 
   <div class="info">
-      <div class="pagination">
-        <a href=""><router-link to="/">Главная /</router-link></a>
-      </div>
   </div>
+
   <div class="wrapper">
       <div class="portfolio">
           <h1><span>Портфолио</span></h1>
@@ -62,12 +60,10 @@
 
 .info{
     display: flex;
-    height: 490px;
-    width: 100%;
     background-image: url('@/assets/img/portfolio/back.svg');
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-position: center center;
+    padding-top: calc(100% * (490 / 1921)); /* height и width пропорции картинки */
     position: absolute;
 }
 
@@ -87,6 +83,15 @@
     position: relative;
     margin-top: 15%;
     width: 450px;
+}
+
+
+@media screen and (min-width: 1921px) {
+
+.portfolio{
+  margin-top: 25%;
+}
+
 }
 
 .portfolio h1 span {

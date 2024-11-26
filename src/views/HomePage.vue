@@ -141,39 +141,6 @@
 
 <!-- categories -->
 
-<div class="wrapper">
-
-<div class="category">
-    <div class="category_txt">
-        <h1>Основные категории</h1>
-        <button @click="goToCatalog" 
-            @mouseover="changeImage('white')" 
-            @mouseout="changeImage('green')">
-            <img :src="arrowSrc" alt="arrow">
-        </button>
-    </div>
-    <div class="category_icon">
-        <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_krysh.svg" alt="Икнока кружек">
-            <p>Кружки</p>
-        </div>
-        <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_termos.svg" alt="Иконка термосов">
-            <p>Термосы</p>
-        </div>
-        <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_aksesyar.svg" alt="Иконка аксессуаров">
-            <p>Аксессуары</p>
-        </div>
-        <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_kanc.svg" alt="Иконка канцелярии">
-            <p>Канцелярия</p>
-        </div>
-    </div>
-</div>
-
-</div>
-
 <!-- reviews -->
 
 <div class="company">
@@ -621,42 +588,6 @@ export default {
     margin-left: 8px; /* Отступ между текстом и иконкой */
     width: 20px;
     height: 20px;
-}
-
-/* categories */
-
-.category{
-    margin-top: 15%;
-}
-
-.category_txt{
-    display: flex;
-}
-
-.category_txt button{
-    margin-left: 5%;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
-}
-
-.category_txt button:hover {
-    background-color: #00997a;
-}
-
-.category_txt h1{
-    font-family: medium;
-    font-size: 24px;
-}
-
-.category_icon{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5%;
-    text-align: center;
 }
 
 /* reviews */

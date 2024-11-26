@@ -106,6 +106,14 @@ export default {
   margin-top: 15%;
 }
 
+@media screen and (min-width: 1921px) {
+
+  .cat{
+    margin-top: 25%;
+  }
+  
+}
+
 /* categories */
 
 .categories{
@@ -150,12 +158,6 @@ export default {
     margin: 0 auto;
 }
 
-@media screen and (min-width: 1921px) {
 
-  .cat{
-    margin-top: 25%;
-  }
-  
-}
   </style>
   
