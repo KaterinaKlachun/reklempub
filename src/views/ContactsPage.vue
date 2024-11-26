@@ -4,9 +4,6 @@
 <!-- info -->
 
 <div class="info">
-    <div class="pagination">
-          <a href=""><router-link to="/">Главная /</router-link></a>
-      </div>
 </div>
 
 <div class="wrapper">
@@ -116,16 +113,32 @@
 /* info */
 
 .info{
-    height: 250px;
-    background-image: url('@/assets/img/news/back.svg');
+  background-image: url('@/assets/img/contacts/back.svg');
+  display: flex;
+  background-size: cover;
+  background-position: center center;
+  padding-top: calc(100% * (535 / 1920)); /* height и width пропорции картинки */
+  position: absolute;
 }
 
 .cat{
-    width: 100%;
+  margin-top: 10%;
 }
 
 .cat p{
     margin-top: 10%;
+}
+
+@media screen and (min-width: 1921px) {
+
+.cat{
+  margin-top: 15%;
+}
+
+.contact{
+    margin-top: 45%;
+}
+
 }
 
 /* contact */
@@ -133,8 +146,18 @@
 .contact{
     display: flex;
     justify-content: space-between;
-    margin-top: 10%;
+    margin-top: 20%;
 }
+
+
+@media screen and (min-width: 1921px) {
+
+.contact{
+    margin-top: 35%;
+}
+
+}
+
 
 .adress, .telephon, .post{
     height: 190px;
@@ -238,6 +261,15 @@ p#time{
     height: 100vh;            /* Задаем высоту 100% от высоты экрана */
     margin: 0;                /* Убираем отступы */
     padding: 0;               /* Убираем внутренние отступы */
+}
+
+@media screen and (min-width: 1921px) {
+
+.map{
+    margin-top: 5%;
+    height: 50vh; 
+}
+
 }
 
 </style>

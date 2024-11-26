@@ -9,6 +9,7 @@ import NewsPage from '../views/NewsPage.vue';
 import PortfolioPage from '../views/PortfolioPage.vue';
 import ServicesPage from '../views/ServicesPage.vue';
 import ProductPage from '../views/ProductPage.vue';
+import ServicePage from '@/views/ServicePage.vue';
 
 const routes = [
   { path: '/', component: HomePage },
@@ -23,6 +24,12 @@ const routes = [
     name: 'ProductPage',
     component: ProductPage,
     props: true,
+  },
+  {
+    path: '/service/:id',
+    name: 'service',
+    component: ServicePage,
+    props: true, // Позволяет передавать параметры маршрута как пропсы
   },
 ];
 

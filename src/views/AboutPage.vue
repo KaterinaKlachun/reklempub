@@ -130,8 +130,20 @@
     background-image: url('@/assets/img/about/back.svg');
     background-size: cover;
     background-position: center center;
-    padding-top: calc(100% * (535 / 1920)); /* height и width пропорции картинки */
+    padding-top: calc(100% * (615 / 1920)); /* height и width пропорции картинки */
     position: absolute;
+}
+
+.cat{
+  margin-top: 15%;
+}
+
+@media screen and (min-width: 1921px) {
+
+.cat{
+  margin-top: 25%;
+}
+
 }
 
 /* partners */
@@ -193,14 +205,14 @@
     font-size: 0.8rem;
 }
 
-.chronology{
+.chronology {
     margin-top: 5%;
     height: 864px;
     width: 100%;
     background-image: url('@/assets/img/about/chronology.svg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size: contain; /* Масштабирует изображение так, чтобы оно полностью помещалось */
+    background-position: center center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Предотвращает повтор */
 }
 
 .chronology p{

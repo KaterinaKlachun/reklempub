@@ -27,7 +27,7 @@
           <button class="company_button" @click="goToAbout">О компании</button>
         </div>
         <div class="right">
-          <img src="@/assets/img/main/key_cup.svg" loading="lazy" alt="Клавиатура и кружка">
+          <img src="@/assets/img/main/key_cup.svg" alt="Клавиатура и кружка">
         </div>
       </section>
     </div>
@@ -39,21 +39,21 @@
 
   <section class="about_2">
       <div class="card_about">
-          <img src="@/assets/img/main/timer.svg" loading="lazy" alt="Икона таймера">
+          <img src="@/assets/img/main/timer.svg" alt="Икона таймера">
           <p>Принт за 24 часа</p>
           <p id="opis">Некоторые заказы можем<br>
               произвести быстрее<br>
               суток</p>
       </div>
       <div class="card_about">
-          <img src="@/assets/img/main/flash.svg" loading="lazy" alt="Иконка молнии">
+          <img src="@/assets/img/main/flash.svg" alt="Иконка молнии">
           <p>Быстрая доставка</p>
           <p id="opis">Сотрудничаем с<br>
               быстрыми и надежными<br>
               службами</p>
       </div>
       <div class="card_about">
-          <img src="@/assets/img/main/box.svg" loading="lazy" alt="Иконка опта">
+          <img src="@/assets/img/main/box.svg" alt="Иконка опта">
           <p>Только ОПТ</p>
           <p id="opis">Работаем на большие<br>
               объемы брендинга</p>
@@ -73,7 +73,7 @@
         <div class="cards">
         <!-- Отображаем товары с помощью v-for -->
             <div class="card" v-for="(product, index) in randomProducts" :key="index">
-                <img :src="product.imgSrc" loading="lazy" alt="Картинка продукта" />
+                <img :src="product.imgSrc" alt="Картинка продукта" />
                 <p class="product-name">{{ product.name }}</p>
                 <div class="card_footer_catalog">
                     <!-- Кнопка для перехода на страницу товара -->
@@ -90,44 +90,52 @@
 
 <div class="wrapper">
 
-<section class="services">
+    <section class="services">
     <h2>Популярные услуги</h2>
 
     <div class="service_cards">
-        <div class="service_card">
-            <img src="@/assets/img/main/gravir.svg" loading="lazy" alt="Иконка гравировки">
-            <p id="service_card_heading">Гравировка</p>
-            <p>Нанесем на изделия логотип, рисунок или надпись</p>
-            <div class="card_footer_service">
-                <button>Подробнее <img src="@/assets/img/arrow_right.svg" alt=""> </button>
-            </div>
+      <div class="service_card">
+        <img src="@/assets/img/main/gravir.svg" alt="Иконка гравировки" />
+        <p id="service_card_heading">Гравировка</p>
+        <p>Нанесем на изделия логотип, рисунок или надпись</p>
+        <div class="card_footer_service">
+          <button @click="goToService('engraving')">
+            Подробнее <img src="@/assets/img/arrow_right.svg" alt="" />
+          </button>
         </div>
-        <div class="service_card">
-            <img src="@/assets/img/main/shlefov.svg" loading="lazy" alt="Иконка шелкографии">
-            <p id="service_card_heading">Шелкография</p>
-            <p>Изображения высоко качества на любых материалах</p>
-            <div class="card_footer_service">
-                <button>Подробнее <img src="@/assets/img/arrow_right.svg" alt=""> </button>
-            </div>
+      </div>
+      <div class="service_card">
+        <img src="@/assets/img/main/shlefov.svg" alt="Иконка шелкографии" />
+        <p id="service_card_heading">Шелкография</p>
+        <p>Изображения высокого качества на любых материалах</p>
+        <div class="card_footer_service">
+          <button @click="goToService('silk-screen')">
+            Подробнее <img src="@/assets/img/arrow_right.svg" alt="" />
+          </button>
         </div>
-        <div class="service_card">
-            <img src="@/assets/img/main/tisnen.svg" loading="lazy" alt="Иконка теснения">
-            <p id="service_card_heading">Тиснение</p>
-            <p>Нанесения рельефного рисунка</p>
-            <div class="card_footer_service">
-                <button>Подробнее <img src="@/assets/img/arrow_right.svg" alt=""> </button>
-            </div>
+      </div>
+      <div class="service_card">
+        <img src="@/assets/img/main/tisnen.svg" alt="Иконка теснения" />
+        <p id="service_card_heading">Тиснение</p>
+        <p>Нанесение рельефного рисунка</p>
+        <div class="card_footer_service">
+          <button @click="goToService('embossing')">
+            Подробнее <img src="@/assets/img/arrow_right.svg" alt="" />
+          </button>
         </div>
-        <div class="service_card">
-            <img src="@/assets/img/main/tampo.svg" loading="lazy" alt="Иконка тампопечати">
-            <p id="service_card_heading">Тампопечать</p>
-            <p>Перенос изображения с помощью силиконового валика</p>
-            <div class="card_footer_service">
-                <button>Подробнее <img src="@/assets/img/arrow_right.svg" alt=""> </button>
-            </div>
+      </div>
+      <div class="service_card">
+        <img src="@/assets/img/main/tampo.svg" alt="Иконка тампопечати" />
+        <p id="service_card_heading">Тампопечать</p>
+        <p>Перенос изображения с помощью силиконового валика</p>
+        <div class="card_footer_service">
+          <button @click="goToService('tampon-printing')">
+            Подробнее <img src="@/assets/img/arrow_right.svg" alt="" />
+          </button>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
 </div>
 
@@ -146,19 +154,19 @@
     </div>
     <div class="category_icon">
         <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_krysh.svg" loading="lazy" alt="Икнока кружек">
+            <img src="@/assets/img/catalog/icon_krysh.svg" alt="Икнока кружек">
             <p>Кружки</p>
         </div>
         <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_termos.svg" loading="lazy" alt="Иконка термосов">
+            <img src="@/assets/img/catalog/icon_termos.svg" alt="Иконка термосов">
             <p>Термосы</p>
         </div>
         <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_aksesyar.svg" loading="lazy" alt="Иконка аксессуаров">
+            <img src="@/assets/img/catalog/icon_aksesyar.svg" alt="Иконка аксессуаров">
             <p>Аксессуары</p>
         </div>
         <div class="card_icon">
-            <img src="@/assets/img/catalog/icon_kanc.svg" loading="lazy" alt="Иконка канцелярии">
+            <img src="@/assets/img/catalog/icon_kanc.svg" alt="Иконка канцелярии">
             <p>Канцелярия</p>
         </div>
     </div>
@@ -170,7 +178,7 @@
 
 <div class="company">
     <!-- Первая кнопка "Больше отзывов" -->
-    <button class="button_reviews">Больше отзывов <img src="@/assets/img/main/review.svg" loading="lazy" alt="Иконка отзывов"></button>
+    <button class="button_reviews">Больше отзывов <img src="@/assets/img/main/review.svg" alt="Иконка отзывов"></button>
 
     <!-- Вторая кнопка "Подробнее" -->
     <button class="button_details" @click="goToPortfolio">Подробнее</button>
@@ -199,7 +207,7 @@
             </div>
         </div>
         <div class="button_container">
-            <button @click="goToNews">Все новости<img src="@/assets/img/main/new.svg" loading="lazy" alt="Иконка нововстей"></button>
+            <button @click="goToNews">Все новости<img src="@/assets/img/main/new.svg" alt="Иконка нововстей"></button>
         </div>
     </div>
 </div>
@@ -321,6 +329,9 @@ export default {
     shuffleProducts() {
         // Перемешиваем товары случайным образом и берем 3 случайных
         this.randomProducts = this.products.sort(() => Math.random() - 0.5).slice(0, 3);
+    },
+    goToService(serviceId) {
+      this.$router.push({ name: 'service', params: { id: serviceId } });
     },
   },
 };
@@ -532,16 +543,35 @@ export default {
 .services h2{
     font-family: medium;
     font-size: 24px;
+    color: #333;
+    margin-bottom: 40px;
 }
 
 .service_cards{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивная сетка */
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .service_card{
-    margin-top: 5%;
-    width: 200px;
+    background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.service_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 #service_card_heading {
@@ -564,34 +594,39 @@ export default {
 }
 
 .card_footer_service button {
-    display: inline-flex;
-    align-items: center; /* Центрирует содержимое по вертикали */
     justify-content: center; /* Центрирует содержимое по горизонтали */
     background-color: white;
     color: black;
-    border: solid 1px #00b894;
-    border-radius: 10px;
     width: 100%;
     height: 40px;
-    cursor: pointer;
-    transition: background-color 0.3s;
     margin-top: 35%;
+    font-size: 14px;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .card_footer_service button:hover {
     background-color: #00b894;
-    border: none;
+    transform: scale(1.05);
     color: white;
 }
 
 .card_footer_service button img {
     margin-left: 8px; /* Отступ между текстом и иконкой */
+    width: 20px;
+    height: 20px;
 }
 
 /* categories */
 
 .category{
-    margin-top: 20%;
+    margin-top: 15%;
 }
 
 .category_txt{

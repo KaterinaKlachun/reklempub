@@ -98,7 +98,7 @@ body {
 
 .cat{
   position: relative;
-  margin-top: 15%;
+  margin-top: 11%;
   width: 450px;
 }
 

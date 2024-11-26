@@ -1,20 +1,21 @@
 <template>
   <!-- info -->
-  <div class="info">
-    <div class="pagination">
-      <a href=""><router-link to="/">Главная /</router-link></a>
-    </div>
-  </div>
-  <div class="wrapper">
-    <div class="cat">
+
+<div class="info">
+</div>
+
+<div class="wrapper">
+  
+  <div class="cat">
       <h1><span>Каталог</span></h1>
       <p>
         Следует отметить, что разбавленное изрядной долей эмпатии, рациональное мышление требует определения и
         уточнения прогресса профессионального сообщества. Но глубокий уровень погружения влечет за собой процесс
         внедрения и модернизации глубокомысленных рассуждений.
       </p>
-    </div>
   </div>
+
+</div>
 
   <!-- categories -->
   <div class="wrapper">
@@ -93,8 +94,16 @@ export default {
 /* info */
 
 .info{
-    height: 610px;
-    background-image: url('@/assets/img/catalog/info_back.svg');
+  background-image: url('@/assets/img/catalog/info_back.svg');
+  display: flex;
+  background-size: cover;
+  background-position: center center;
+  padding-top: calc(100% * (554 / 1920)); /* height и width пропорции картинки */
+  position: absolute;
+}
+
+.cat{
+  margin-top: 15%;
 }
 
 /* categories */
@@ -139,6 +148,14 @@ export default {
     max-width: 1200px;
     padding: 20px;
     margin: 0 auto;
+}
+
+@media screen and (min-width: 1921px) {
+
+  .cat{
+    margin-top: 25%;
+  }
+  
 }
   </style>
   
