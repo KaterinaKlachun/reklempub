@@ -1,21 +1,19 @@
 <template>
   <!-- info -->
+  <div class="info">
+    <!-- info content here -->
+  </div>
 
-<div class="info">
-</div>
-
-<div class="wrapper">
-  
-  <div class="cat">
+  <div class="wrapper">
+    <div class="cat">
       <h1><span>Каталог</span></h1>
       <p>
         Следует отметить, что разбавленное изрядной долей эмпатии, рациональное мышление требует определения и
         уточнения прогресса профессионального сообщества. Но глубокий уровень погружения влечет за собой процесс
         внедрения и модернизации глубокомысленных рассуждений.
       </p>
+    </div>
   </div>
-
-</div>
 
   <!-- categories -->
   <div class="wrapper">
@@ -34,28 +32,29 @@
     </div>
 
     <div id="catalog-container" class="catalog_container">
+      <!-- Здесь отображаются товары -->
       <ProductCard
-        v-for="(product, index) in displayedProducts"
-        :key="index"
+        v-for="product in displayedProducts"
+        :key="product.id"
         :product="product"
         :category="selectedCategory"
-        :productId="index + 1"
-        @click="viewProduct(index)"
+        :productId="product.id"
+        @click="viewProduct(product.id)"
       />
     </div>
   </div>
 </template>
 
 <script>
-import Category from "@/components/CategoryPage.vue";
 import ProductCard from "@/components/ProductCard.vue";
-import productsData from "@/assets/data/products.js";
+import Category from "@/components/CategoryPage.vue";
+import supabase from "@/supabase"; // Подключение к Supabase
 
 export default {
   name: "CatalogPage",
   components: {
-    Category,
     ProductCard,
+    Category,
   },
   data() {
     return {
@@ -65,26 +64,35 @@ export default {
         accessories: { name: "Аксессуары", image: require("@/assets/img/catalog/icon_aksesyar.svg") },
         chancellery: { name: "Канцелярия", image: require("@/assets/img/catalog/icon_kanc.svg") },
       },
-      displayedProducts: [],
+      displayedProducts: [], // Список товаров для отображения
       selectedCategory: "mugs", // Категория по умолчанию
-      productsData,
     };
   },
   methods: {
-    loadProducts(category) {
-      this.selectedCategory = category;
-      this.displayedProducts = this.productsData[category] || [];
+    async loadProducts(category) {
+      // Загружаем товары для выбранной категории из Supabase
+      const { data: products, error } = await supabase
+        .from("catalog_products")
+        .select("*")
+        .eq("category", category); // Фильтруем по категории
+
+      if (error) {
+        console.error("Ошибка загрузки продуктов:", error);
+        return;
+      }
+
+      this.displayedProducts = products; // Обновляем список товаров
     },
-    viewProduct(index) {
+    viewProduct(productId) {
       const category = this.selectedCategory;
       this.$router.push({
         name: "ProductPage",
-        params: { category, id: index + 1 },
+        params: { category, id: productId }, // Используем productId вместо index
       });
     },
   },
   created() {
-    // Загружаем продукты для категории по умолчанию
+    // Загружаем товары для категории по умолчанию
     this.loadProducts(this.selectedCategory);
   },
 };

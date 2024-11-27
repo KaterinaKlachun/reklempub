@@ -1,26 +1,19 @@
 <template>
-    <div class="product-card">
-        <img :src="product.imgSrc" :alt="product.title" class="product-image" />
-        <h3 class="product-title">{{ product.title }}</h3>
-        <button @click="viewProduct" class="product-button">Выбрать вид</button>
-        <p class="product-price">{{ product.price }}</p>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      product: Object,
-      category: String,
-      productId: Number,
-    },
-    methods: {
-      viewProduct() {
-        this.$router.push({ name: 'ProductPage', params: { category: this.category, id: this.productId } });
-      },
-    },
-  };
-  </script>
+  <div class="product-card">
+    <img :src="product.image_url" :alt="product.title" class="product-image" />
+    <h3 class="product-title">{{ product.title }}</h3>
+    <button @click="viewProduct" class="product-button">Выбрать вид</button>
+    <p class="product-price">{{ product.price }} ₽</p>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    product: Object,
+  },
+};
+</script>
   
   <style scoped>
 .product-card {

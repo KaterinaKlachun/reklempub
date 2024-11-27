@@ -1,110 +1,134 @@
 <template>
-  <!-- info -->
-
+  <!-- Информация о странице -->
   <div class="info">
-  <div class="pagination">
-    <router-link to="/">Главная / </router-link>
-    <router-link to="/catalog">Каталог /</router-link>
+    <div class="pagination">
+      <router-link to="/">Главная / </router-link>
+      <router-link to="/catalog">Каталог /</router-link>
+    </div>
   </div>
-</div>
 
-<!-- product -->
-
-<div class="wrapper">
+  <!-- Информация о продукте -->
+  <div v-if="product" class="wrapper">
     <div class="product">
-        <div class="product_left">
-            <img :src="selectedColorImage" :alt="product.name" class="product-image" />
+      <div class="product_left">
+        <img :src="selectedColorImage" :alt="product.name" class="product-image" />
+      </div>
+      <div class="product_right">
+        <p>{{ product.name }}</p>
+        <div class="stock_info">
+          <p id="art">Арт. {{ product.article }}</p>
+          <p>На складе {{ product.stock }} шт.</p>
         </div>
-        <div class="product_right">
-            <p>{{ product.name }}</p>
-            <div class="stock_info">
-                <p id="art">Арт. {{ product.article }}</p>
-                <p>На складе {{ product.stock }} шт.</p>
-            </div>
-            <div class="custom-select">
-                <div class="options">
-                  <p>Цвет</p>
-                  <select @change="updateColorImage($event.target.value)">
-                    <option
-                      v-for="color in product.colors"
-                      :key="color.color"
-                      :value="color.color"
-                    >
-                      {{ color.color }}
-                    </option>
-                  </select>
-                </div>
-            </div>
-            <p id="product-price" class="product-price">{{ product.price }} ₽</p>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-button" @click="addToCart">В корзину</button>
-                
-                <div class="quantity-counter">
-                    <button @click="selectedQuantity = Math.max(1, selectedQuantity - 1)" class="decrement-button">
-                        <img src="@/assets/img/product/minus.svg" alt="Уменьшить количество">
-                    </button>
-                    <span>{{ selectedQuantity }}</span>
-                    <button  @click="selectedQuantity++" class="increment-button">
-                        <img src="@/assets/img/product/plus.svg" alt="Увеличить количество">
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        <div class="custom-select">
+          <div class="options">
+            <p>Цвет</p>
+            <select @change="updateColorImage($event.target.value)">
+  <option v-for="color in product.product_colors" :key="color.color" :value="color.color">
+    {{ color.color }}
+  </option>
+</select>
 
-<div class="wrapper">
-    <div class="product_info">
-        <h1>Описание</h1>
-        <p>{{ product.description }}</p>  
+          </div>
+        </div>
+        <p id="product-price" class="product-price">{{ product.price }} ₽</p>
+        <div class="add-to-cart-container">
+          <button class="add-to-cart-button" @click="addToCart">В корзину</button>
+
+          <div class="quantity-counter">
+            <button
+              @click="selectedQuantity = Math.max(1, selectedQuantity - 1)"
+              class="decrement-button"
+            >
+              <img src="@/assets/img/product/minus.svg" alt="Уменьшить количество" />
+            </button>
+            <span>{{ selectedQuantity }}</span>
+            <button @click="selectedQuantity++" class="increment-button">
+              <img src="@/assets/img/product/plus.svg" alt="Увеличить количество" />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-  
+    <div class="product_info">
+      <h1>Описание</h1>
+      <p>{{ product.description }}</p>
+    </div>
+  </div>
+  <div v-else>
+    <p>Загрузка данных о продукте...</p>
+  </div>
 </template>
 
 <script>
-
-import productCatalogData from "@/assets/data/productCatalogData.js";
+import supabase from "@/supabase"; // Подключение к Supabase
 
 export default {
-  name: 'ProductPage',
-  props: ['category', 'id'],
+  name: "ProductPage",
+  props: ["category", "id"], // Категория и ID продукта передаются через роутер
   data() {
     return {
-      product: null,  // Данные выбранного продукта
-      selectedColorImage: null, // Изображение для выбранного цвета
-      selectedQuantity: 1, // Начальное количество товара
+      product: null, // Данные о продукте
+      selectedColorImage: null, // Изображение выбранного цвета
+      selectedQuantity: 1, // Количество товара
     };
   },
   methods: {
-      loadProduct() {
-        const categoryProducts = productCatalogData[this.category];
-        if (categoryProducts) {
-          const productIndex = parseInt(this.id, 10) - 1; // Преобразование `id` в число
-          this.product = categoryProducts[productIndex] || null;
+    // Загрузка данных о конкретном продукте
+    async loadProduct() {
+  try {
+    const { data, error } = await supabase
+      .from("products")
+      .select("*, product_colors(color, image_url)") // Получаем цвета и их изображения
+      .eq("id", this.id)  // Фильтруем по ID продукта
+      .single();  // Ожидаем один продукт
 
-          if (this.product && this.product.colors && this.product.colors.length > 0) {
-            this.selectedColorImage = this.product.colors[0].image;
-          }
-        }
-      },
-      updateColorImage(selectedColor) {
-        const selectedColorData = this.product.colors.find(color => color.color === selectedColor);
-        this.selectedColorImage = selectedColorData ? selectedColorData.image : '';
-      },
-      addToCart() {
-        // Логика добавления товара в корзину
-      },
+    if (error) {
+      console.error("Ошибка загрузки продукта:", error);
+      return;
+    }
+
+    this.product = data;
+
+    // Если product_colors существует и не пусто, устанавливаем первое изображение
+    if (this.product.product_colors && this.product.product_colors.length > 0) {
+      this.selectedColorImage = this.product.product_colors[0].image_url;
+    } else {
+      this.selectedColorImage = null;  // Если цветов нет, не показываем изображение
+    }
+  } catch (err) {
+    console.error("Ошибка при загрузке продукта:", err);
+  }
+}
+
+,
+    // Обновление изображения при смене цвета
+    updateColorImage(selectedColor) {
+  // Убедитесь, что product_colors существует и что выбранный цвет есть в этом списке
+  const selectedColorData = this.product.product_colors?.find(color => color.color === selectedColor);
+
+  if (selectedColorData) {
+    this.selectedColorImage = selectedColorData.image_url; // Устанавливаем изображение выбранного цвета
+  } else {
+    this.selectedColorImage = null; // Если цвет не найден, устанавливаем пустое изображение
+  }
+}
+,
+    // Добавление товара в корзину
+    addToCart() {
+      console.log(
+        `Добавлено в корзину: ${this.selectedQuantity} шт. товара "${this.product.name}"`
+      );
     },
-    created() {
-      this.loadProduct();
-    },
-    watch: {
-      // Обновляем продукт при изменении маршрута
-      '$route.params': 'loadProduct',
-    },
-  };
+  },
+  created() {
+    this.loadProduct(); // Загрузка продукта при создании компонента
+  },
+  watch: {
+    "$route.params.id": "loadProduct", // Обновление данных, если изменится ID в маршруте
+  },
+};
 </script>
+
 
 <style scoped>
 
