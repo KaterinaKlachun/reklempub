@@ -1,10 +1,14 @@
 <template>
+  <!-- Шапка сайта -->
   <header>
     <div class="wrapper">
       <nav id="head">
+        <!-- Логотип -->
         <div class="logo">
           <router-link to="/"><img src="@/assets/img/header/logo.svg" alt="Logo" /></router-link>
         </div>
+
+        <!-- Ссылки навигации -->
         <ul class="nav-links">
           <li><router-link to="/about"><p>О компании</p></router-link></li>
           <li><router-link to="/catalog"><p>Каталог</p></router-link></li>
@@ -18,11 +22,15 @@
             />
           </li>
         </ul>
+
+        <!-- Иконки пользователя и корзины -->
         <div class="icons">
           <a href="#"><img src="@/assets/img/header/user.svg" alt="Личный кабинет" /></a>
           <a href="#"><img src="@/assets/img/header/shop.svg" alt="Корзина" /></a>
         </div>
       </nav>
+
+      <!-- Поисковая панель -->
       <div v-if="isSearchVisible" class="search-container">
         <input
           type="text"
@@ -50,9 +58,9 @@ export default {
   name: "HeaderPage",
   data() {
     return {
-      isSearchVisible: false,
-      searchQuery: "",
-      results: [],
+      isSearchVisible: false, // Видимость поисковой панели
+      searchQuery: "", // Запрос пользователя
+      results: [], // Результаты поиска
       pages: [
         { page: "О компании", link: "/about", content: "Информация о компании" },
         { page: "Каталог", link: "/catalog", content: "Список товаров" },
@@ -63,11 +71,13 @@ export default {
     };
   },
   methods: {
+    // Переключение видимости поиска
     toggleSearch() {
       this.isSearchVisible = !this.isSearchVisible;
       this.searchQuery = "";
       this.results = [];
     },
+    // Поиск по введенному запросу
     performSearch() {
       const query = this.searchQuery.toLowerCase().trim();
       if (query === "") {
@@ -84,22 +94,25 @@ export default {
 </script>
 
 <style scoped>
-/* Header */
+/* Стили для шапки сайта */
 header {
   background-color: #f2f2f2;
   border-bottom: solid #e5e5e5 2px;
 }
 
+/* Ссылки */
 header a {
   font-family: medium;
 }
 
+/* Контейнер */
 .wrapper {
   width: 100%;
   max-width: 1180px;
   margin: 0 auto;
 }
 
+/* Навигация */
 #head {
   display: flex;
   align-items: center;
@@ -107,10 +120,12 @@ header a {
   padding: 15px 0;
 }
 
+/* Логотип */
 .logo img {
   width: 100%;
 }
 
+/* Ссылки навигации */
 .nav-links {
   list-style: none;
   display: flex;
@@ -133,6 +148,7 @@ header a {
   color: black;
 }
 
+/* Иконки */
 .icons {
   display: flex;
   gap: 10px;
@@ -142,7 +158,7 @@ header a {
   width: 50px;
 }
 
-/* Search Styles */
+/* Стили поиска */
 .search-container {
   margin-top: 10px;
   display: flex;

@@ -1,51 +1,39 @@
 <template>
+  <!-- info -->
+  <div class="info"></div>
 
-<!-- info -->
-
-<div class="info">
-</div>
-
-<div class="wrapper">
-
+  <div class="wrapper">
     <div class="cat">
-        <h1><span>Услуги</span></h1>
-        <p>
-            Следует отметить, что разбавленное
-            изрядной долей эмпатии, рациональное
-            мышление требует определения и уточнения
-            прогресса профессионального сообщества.
-            Но глубокий уровень погружения влечет
-            за собой процесс внедрения и модернизации
-            глубокомысленных рассуждений.
-        </p>
-    </div> 
-
-</div>
-
-<!-- service -->
-
-<div class="wrapper">
-    <div class="service">
-        <img src="@/assets/img/services/service.svg" alt="">
+      <h1><span>Услуги</span></h1>
+      <p>
+        Следует отметить, что разбавленное
+        изрядной долей эмпатии, рациональное
+        мышление требует определения и уточнения
+        прогресса профессионального сообщества.
+        Но глубокий уровень погружения влечет
+        за собой процесс внедрения и модернизации
+        глубокомысленных рассуждений.
+      </p>
     </div>
-</div>
+  </div>
 
+  <!-- service -->
+  <div class="wrapper">
+    <div class="service">
+      <img src="@/assets/img/services/service.svg" alt="" />
+    </div>
+  </div>
 </template>
-  
+
 <script>
-
 export default {
-    name: 'ServicesPage',
-}
-
+  name: "ServicesPage",
+};
 </script>
-  
+
 <style scoped>
-
-
 /* info */
-
-.info{
+.info {
   background-image: url('@/assets/img/services/back.svg');
   display: flex;
   background-size: cover;
@@ -54,35 +42,29 @@ export default {
   position: absolute;
 }
 
-.cat{
+.cat {
   margin-top: 15%;
 }
 
-.cat p{
-    margin-top: 5%;
+.cat p {
+  margin-top: 5%;
 }
 
 @media screen and (min-width: 1921px) {
-
-.cat{
-  margin-top: 22%;
+  .cat {
+    margin-top: 22%;
+  }
 }
 
-}
-   
 /* service */
-
-.service{
-    width: 100%;
-    margin-top: 25%;
+.service {
+  width: 100%;
+  margin-top: 25%;
 }
 
 @media screen and (min-width: 1921px) {
-
-.service{
-  margin-top: 30%;
+  .service {
+    margin-top: 30%;
+  }
 }
-
-}
-
 </style>

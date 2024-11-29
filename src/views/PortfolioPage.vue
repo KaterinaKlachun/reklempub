@@ -1,19 +1,18 @@
 <template>
 
   <!-- info -->
-
   <div class="info">
   </div>
 
   <div class="wrapper">
-      <div class="portfolio">
-          <h1><span>Портфолио</span></h1>
-          <p>Следует отметить, что разбавленное изрядной долей эмпатии,
-              рациональное мышление требует определения и уточнения
-              прогресса профессионального сообщества. Но глубокий
-              уровень погружения влечет за собой процесс внедрения и
-              модернизации глубокомысленных рассуждений.</p>
-      </div> 
+    <div class="portfolio">
+      <h1><span>Портфолио</span></h1>
+      <p>Следует отметить, что разбавленное изрядной долей эмпатии,
+        рациональное мышление требует определения и уточнения
+        прогресса профессионального сообщества. Но глубокий
+        уровень погружения влечет за собой процесс внедрения и
+        модернизации глубокомысленных рассуждений.</p>
+    </div>
   </div>
 
   <div id="portfolio-container" class="portfolio_container">
@@ -46,73 +45,67 @@
           { title: "АО «Лукоил Рус»", img: require("@/assets/img/portfolio/icon12.svg") },
           { title: "АО «Лукоил Рус»", img: require("@/assets/img/portfolio/icon13.svg") },
           { title: "ИП Игнатьев", img: require("@/assets/img/portfolio/icon14.svg") },
-          { title: "Кружка «Denpasar» с крышкой", img: require("@/assets/img/portfolio/icon15.svg") },
+          { title: "АО «Леруа Мерлен Восток»", img: require("@/assets/img/portfolio/icon15.svg") },
           { title: "ИП Варкутинов", img: require("@/assets/img/portfolio/icon16.svg") }
         ]
       };
     }
   };
 </script>
-  
+
 <style scoped>
-
-/* info */
-
-.info{
+  /* info */
+  .info {
     display: flex;
     background-image: url('@/assets/img/portfolio/back.svg');
     background-size: cover;
     background-position: center center;
     padding-top: calc(100% * (490 / 1921)); /* height и width пропорции картинки */
     position: absolute;
-}
+  }
 
-.pagination{
+  .pagination {
     margin-left: 20%;
     margin-top: 2%;
-}
+  }
 
-.pagination a{
+  .pagination a {
     text-decoration: none;
     font-family: medium;
     font-size: 1rem;
     color: black;
-}
+  }
 
-.portfolio{
+  .portfolio {
     position: relative;
     margin-top: 15%;
     width: 450px;
-}
+  }
 
+  @media screen and (min-width: 1921px) {
+    .portfolio {
+      margin-top: 25%;
+    }
+  }
 
-@media screen and (min-width: 1921px) {
-
-.portfolio{
-  margin-top: 25%;
-}
-
-}
-
-.portfolio h1 span {
+  .portfolio h1 span {
     text-decoration: underline 5px;
     text-decoration-color: #FFA630; /* Цвет подчеркивания */
-}
+  }
 
-.portfolio h1{
+  .portfolio h1 {
     font-family: bold;
     font-size: 36px;
-}
+  }
 
-.portfolio p{
+  .portfolio p {
     margin-top: 20%;
     font-family: regular;
     font-size: 1rem;
-}
+  }
 
-/* Контейнер для динамического отображения продуктов */
-
-.portfolio_container {
+  /* Контейнер для динамического отображения продуктов */
+  .portfolio_container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 колонки одинаковой ширины */
     grid-template-rows: repeat(1fr);   /* строки с автоматической высотой */
@@ -120,9 +113,9 @@
     max-width: 1200px;
     padding: 20px;
     margin: 0 auto;
-}
+  }
 
-.product-card {
+  .product-card {
     display: flex;
     flex-direction: column; /* Ставим элементы в столбик */
     align-items: center;    /* Выравниваем по центру по горизонтали */
@@ -130,14 +123,12 @@
     text-align: center;     /* Центруем текст внутри */
     padding: 20px;
     height: 350px;
-}
+  }
 
-.product-title {
+  .product-title {
     min-height: 40px; /* Задаем минимальную высоту для выравнивания */
     margin-top: 5%;
     font-size: 1rem;
     font-family: bold;
-}
-
+  }
 </style>
-  

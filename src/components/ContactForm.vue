@@ -1,34 +1,43 @@
 <template>
+    <!-- Основной контейнер -->
     <div class="wrapper">
-            <div class="contact_form">
-        <div class="contact_txt">
-            <h2>Нужна <span>помощь?</span></h2>
-            <p>Оставьте свои данные — мы перезвоним
-                и решим вопрос. Помните, оставляя
-                контакты, вы даёте согласие на
-                обработку персональных данных.</p>
-        </div>
-        <form>
-            <label for="name">Имя</label>
-            <input type="text" id="name" placeholder="Женя" required>
-            <label for="phone">Телефон</label>
-            <input type="tel" id="phone" placeholder="+7 000 000 00 00" required>
-            <button type="submit">Отправить<img src="@/assets/img/arrow_right_green.svg" alt=""></button>
-        </form>
+        <!-- Форма обратной связи -->
+        <div class="contact_form">
+            <!-- Текстовый блок -->
+            <div class="contact_txt">
+                <h2>Нужна <span>помощь?</span></h2>
+                <p>Оставьте свои данные — мы перезвоним
+                    и решим вопрос. Помните, оставляя
+                    контакты, вы даёте согласие на
+                    обработку персональных данных.
+                </p>
+            </div>
+            <!-- Форма ввода данных -->
+            <form>
+                <label for="name">Имя</label>
+                <input type="text" id="name" placeholder="Женя" required>
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" placeholder="+7 000 000 00 00" required>
+                <button type="submit">
+                    Отправить
+                    <img src="@/assets/img/arrow_right_green.svg" alt="">
+                </button>
+            </form>
         </div>
     </div>
-    
-  </template>
-  
-  <script>
-  export default {
-    name: "ContactForm",
-  };
-  </script>
-  
-  <style scoped>
-/* Contact */
+</template>
 
+<script>
+export default {
+    // Название компонента
+    name: "ContactForm",
+};
+</script>
+
+<style scoped>
+/* Стили для формы обратной связи */
+
+/* Основной контейнер формы */
 .contact_form {
     display: flex;
     background-size: cover;
@@ -39,16 +48,18 @@
     padding: 40px 100px; /* Отступы внутри формы */
 }
 
-.contact_txt{
+/* Текстовый блок */
+.contact_txt {
     width: 50%;
 }
+
 .contact_form h2 {
     font-size: 36px; /* Размер заголовка */
     margin-bottom: 20px; /* Отступ снизу */
     color: white;
 }
 
-.contact_form p{
+.contact_form p {
     font-family: regular;
     font-size: 14px;
     color: #487B6C;
@@ -60,7 +71,8 @@
     text-decoration-color: #487B6C; /* Цвет подчеркивания */
 }
 
-.contact_form form{
+/* Блок формы */
+.contact_form form {
     margin-left: 10%;
 }
 
@@ -79,7 +91,8 @@
     border-radius: 5px; /* Скругление углов */
 }
 
-.contact_form button{
+/* Стили кнопки отправки */
+.contact_form button {
     display: inline-flex;
     align-items: center; /* Центрирует содержимое по вертикали */
     justify-content: center; /* Центрирует содержимое по горизонтали */
@@ -98,13 +111,13 @@
     background-color: #f0f0f0; /* Цвет кнопки при наведении */
 }
 
-.contact_form button img{
+.contact_form button img {
     margin-left: 25%;
 }
 
+/* Дополнительные стили для текста */
 .contact_form p {
     font-size: 12px; /* Размер текста для информации */
     margin-top: 15px; /* Отступ сверху */
 }
-  </style>
-  
+</style>

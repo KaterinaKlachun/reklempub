@@ -4,8 +4,9 @@
     <section class="main-banner">
       <div class="txt">
         <h1>Планируете сделать <span>принт?</span><br>Вы пришли по адресу</h1>
-        <p class="txt_banner">Reklem - только оптовая работа высокого качества с <br>
-          индивидуальным подходом. Работаем с 2008 года.</p>
+        <p class="txt_banner">
+          Reklem - только оптовая работа высокого качества с <br>индивидуальным подходом. Работаем с 2008 года.
+        </p>
         <button class="catalog" @click="goToCatalog">Перейти в каталог</button>
       </div>
     </section>
@@ -14,16 +15,9 @@
     <div class="wrapper">
       <section class="about">
         <div class="left">
-          <h1><span>Пара слов</span> о нас,<br>
-                производстве<br>
-                и брендинге</h1>
-            <p>В своём стремлении улучшить пользовательский<br>
-                опыт мы упускаем, что ключевые особенности<br>
-                структуры проекта.</p>
-            <p>В своём стремлении улучшить пользовательский<br>
-                опыт мы упускаем, что ключевые особенности<br>
-                структуры проекта опыт мы упускаем, что<br>
-                ключевые особенности структуры проекта.</p>
+          <h1><span>Пара слов</span> о нас,<br> производстве<br> и брендинге</h1>
+          <p>В своём стремлении улучшить пользовательский<br> опыт мы упускаем, что ключевые особенности<br> структуры проекта.</p>
+          <p>В своём стремлении улучшить пользовательский<br> опыт мы упускаем, что ключевые особенности<br> структуры проекта опыт мы упускаем, что<br> ключевые особенности структуры проекта.</p>
           <button class="company_button" @click="goToAbout">О компании</button>
         </div>
         <div class="right">
@@ -31,160 +25,123 @@
         </div>
       </section>
     </div>
-  </div>
 
-  <!-- About Us 2 -->
-
-  <div class="wrapper">
-
-  <section class="about_2">
-      <div class="card_about">
+    <!-- About Us 2 -->
+    <div class="wrapper">
+      <section class="about_2">
+        <div class="card_about">
           <img src="@/assets/img/main/timer.svg" alt="Икона таймера">
           <p>Принт за 24 часа</p>
-          <p id="opis">Некоторые заказы можем<br>
-              произвести быстрее<br>
-              суток</p>
-      </div>
-      <div class="card_about">
+          <p id="opis">Некоторые заказы можем<br> произвести быстрее<br> суток</p>
+        </div>
+        <div class="card_about">
           <img src="@/assets/img/main/flash.svg" alt="Иконка молнии">
           <p>Быстрая доставка</p>
-          <p id="opis">Сотрудничаем с<br>
-              быстрыми и надежными<br>
-              службами</p>
-      </div>
-      <div class="card_about">
+          <p id="opis">Сотрудничаем с<br> быстрыми и надежными<br> службами</p>
+        </div>
+        <div class="card_about">
           <img src="@/assets/img/main/box.svg" alt="Иконка опта">
           <p>Только ОПТ</p>
-          <p id="opis">Работаем на большие<br>
-              объемы брендинга</p>
-      </div>
-  </section>
+          <p id="opis">Работаем на большие<br> объемы брендинга</p>
+        </div>
+      </section>
+    </div>
 
-  </div>
-
-  <!-- Popular Products -->
-  
-<div class="wrapper">
-
-    <div class="popular">
+    <!-- Popular Products -->
+    <div class="wrapper">
+      <div class="popular">
         <div class="txt_popular">
-            <h1>Популярные и новые<br><span>товары</span></h1>
+          <h1>Популярные и новые<br><span>товары</span></h1>
         </div>
         <div class="cards">
-        <!-- Отображаем товары с помощью v-for -->
-            <div class="card" v-for="(product, index) in randomProducts" :key="index">
-                <img :src="product.imgSrc" alt="Картинка продукта" />
-                <p class="product-name">{{ product.name }}</p>
-                <div class="card_footer_catalog">
-                    <!-- Кнопка для перехода на страницу товара -->
-                    <button @click="goToProduct(product)">Выбрать вид</button>
-                    <p class="price">{{ product.price }} ₽</p>
-                </div>
+          <!-- Отображаем товары с помощью v-for -->
+          <div class="card" v-for="(product, index) in randomProducts" :key="index">
+            <img :src="product.imgSrc" alt="Картинка продукта" />
+            <p class="product-name">{{ product.name }}</p>
+            <div class="card_footer_catalog">
+              <!-- Кнопка для перехода на страницу товара -->
+              <button @click="goToProduct(product)">Выбрать вид</button>
+              <p class="price">{{ product.price }} ₽</p>
             </div>
-        </div>
-    </div>
-
-</div>
-
-  <!-- Services -->
-
-<div class="wrapper">
-
-    <section class="services">
-    <h2>Популярные услуги</h2>
-
-    <div class="service_cards">
-      <div class="service_card">
-        <img src="@/assets/img/main/gravir.svg" alt="Иконка гравировки" />
-        <p id="service_card_heading">Гравировка</p>
-        <p>Нанесем на изделия логотип, рисунок или надпись</p>
-        <div class="card_footer_service">
-          <button @click="goToService('engraving')">
-            Подробнее <img src="@/assets/img/arrow_right.svg" alt="" />
-          </button>
-        </div>
-      </div>
-      <div class="service_card">
-        <img src="@/assets/img/main/shlefov.svg" alt="Иконка шелкографии" />
-        <p id="service_card_heading">Шелкография</p>
-        <p>Изображения высокого качества на любых материалах</p>
-        <div class="card_footer_service">
-          <button @click="goToService('silk-screen')">
-            Подробнее <img src="@/assets/img/arrow_right.svg" alt="" />
-          </button>
-        </div>
-      </div>
-      <div class="service_card">
-        <img src="@/assets/img/main/tisnen.svg" alt="Иконка теснения" />
-        <p id="service_card_heading">Тиснение</p>
-        <p>Нанесение рельефного рисунка</p>
-        <div class="card_footer_service">
-          <button @click="goToService('embossing')">
-            Подробнее <img src="@/assets/img/arrow_right.svg" alt="" />
-          </button>
-        </div>
-      </div>
-      <div class="service_card">
-        <img src="@/assets/img/main/tampo.svg" alt="Иконка тампопечати" />
-        <p id="service_card_heading">Тампопечать</p>
-        <p>Перенос изображения с помощью силиконового валика</p>
-        <div class="card_footer_service">
-          <button @click="goToService('tampon-printing')">
-            Подробнее <img src="@/assets/img/arrow_right.svg" alt="" />
-          </button>
+          </div>
         </div>
       </div>
     </div>
-  </section>
 
-</div>
+    <!-- Services -->
+    <div class="wrapper">
+      <section class="services">
+        <h2>Популярные услуги</h2>
+        <div class="service_cards">
+          <div class="service_card">
+            <img src="@/assets/img/main/gravir.svg" alt="Иконка гравировки" />
+            <p id="service_card_heading">Гравировка</p>
+            <p>Нанесем на изделия логотип, рисунок или надпись</p>
+            <div class="card_footer_service">
+              <button @click="goToService('engraving')">Подробнее <img src="@/assets/img/arrow_right.svg" alt="" /></button>
+            </div>
+          </div>
+          <div class="service_card">
+            <img src="@/assets/img/main/shlefov.svg" alt="Иконка шелкографии" />
+            <p id="service_card_heading">Шелкография</p>
+            <p>Изображения высокого качества на любых материалах</p>
+            <div class="card_footer_service">
+              <button @click="goToService('silk-screen')">Подробнее <img src="@/assets/img/arrow_right.svg" alt="" /></button>
+            </div>
+          </div>
+          <div class="service_card">
+            <img src="@/assets/img/main/tisnen.svg" alt="Иконка теснения" />
+            <p id="service_card_heading">Тиснение</p>
+            <p>Нанесение рельефного рисунка</p>
+            <div class="card_footer_service">
+              <button @click="goToService('embossing')">Подробнее <img src="@/assets/img/arrow_right.svg" alt="" /></button>
+            </div>
+          </div>
+          <div class="service_card">
+            <img src="@/assets/img/main/tampo.svg" alt="Иконка тампопечати" />
+            <p id="service_card_heading">Тампопечать</p>
+            <p>Перенос изображения с помощью силиконового валика</p>
+            <div class="card_footer_service">
+              <button @click="goToService('tampon-printing')">Подробнее <img src="@/assets/img/arrow_right.svg" alt="" /></button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 
-<!-- categories -->
+    <!-- Categories -->
 
-<!-- reviews -->
+    <!-- Reviews -->
+    <div class="company">
+      <!-- Первая кнопка "Больше отзывов" -->
+      <button class="button_reviews">Больше отзывов <img src="@/assets/img/main/review.svg" alt="Иконка отзывов"></button>
+      <!-- Вторая кнопка "Подробнее" -->
+      <button class="button_details" @click="goToPortfolio">Подробнее</button>
+    </div>
 
-<div class="company">
-    <!-- Первая кнопка "Больше отзывов" -->
-    <button class="button_reviews">Больше отзывов <img src="@/assets/img/main/review.svg" alt="Иконка отзывов"></button>
-
-    <!-- Вторая кнопка "Подробнее" -->
-    <button class="button_details" @click="goToPortfolio">Подробнее</button>
-</div>
-
-<!-- events -->
-
-<div class="wrapper">
-    <div class="events">
-        <h1>Оставайтесь <span>в курсе </span><br>
-            <span>событий</span>
-        </h1>
+    <!-- Events -->
+    <div class="wrapper">
+      <div class="events">
+        <h1>Оставайтесь <span>в курсе</span><br><span>событий</span></h1>
         <div class="event">
-            <div class="event1">
-                <h1>Маски теперь в продаже</h1>
-                <p>Принимая во внимание показатели успешности, синтетическое
-                    тестирование способствует повышению качества анализа
-                    существующих паттернов поведения. Противоположная точка
-                    зрения подразумевает.</p>
-            </div>
-            <div class="event2">
-                <h1>Обновление сайта и новое позиционирование</h1>
-                <p>Мы вынуждены отталкиваться от того, что начало повседневной
-                    работы по формированию позиции требует от нас анализа
-                    направлений по формированию анализа прогрессивного развития.</p>
-            </div>
+          <div class="event1">
+            <h1>Маски теперь в продаже</h1>
+            <p>Принимая во внимание показатели успешности, синтетическое тестирование способствует повышению качества анализа существующих паттернов поведения. Противоположная точка зрения подразумевает.</p>
+          </div>
+          <div class="event2">
+            <h1>Обновление сайта и новое позиционирование</h1>
+            <p>Мы вынуждены отталкиваться от того, что начало повседневной работы по формированию позиции требует от нас анализа направлений по формированию анализа прогрессивного развития.</p>
+          </div>
         </div>
         <div class="button_container">
-            <button @click="goToNews">Все новости<img src="@/assets/img/main/new.svg" alt="Иконка нововстей"></button>
+          <button @click="goToNews">Все новости<img src="@/assets/img/main/new.svg" alt="Иконка нововстей"></button>
         </div>
+      </div>
     </div>
-</div>
-
-
+  </div>
 </template>
 
-
 <script>
-
 export default {
   name: "MainPage", // Имя компонента
   props: ['category', 'id'], // добавьте эти props
@@ -302,11 +259,11 @@ export default {
     },
   },
 };
+
 </script>
 
 <style scoped>
 /* Main Banner */
-
 .main-banner {
     background-image: url('@/assets/img/main/background.svg');
     background-size: cover;
@@ -362,9 +319,7 @@ export default {
     }
 }
 
-
 /* About Us */
-
 .about {
     margin-top: 10%;
     display: flex;
@@ -372,7 +327,7 @@ export default {
     padding-left: 5%;
     padding-right: 5%;
     padding-bottom: 5%;
-    border-bottom: solid  #F2F2F2 2px ;
+    border-bottom: solid #F2F2F2 2px;
 }
 
 .about h1 {
@@ -393,7 +348,7 @@ export default {
     margin-bottom: 15px;
 }
 
-.company_button{
+.company_button {
     width: 131px;
     height: 40px;
     background-color: #10BB87;
@@ -407,36 +362,34 @@ export default {
 }
 
 /* About Us 2 */
-
-.about_2{
+.about_2 {
     margin-top: 10%;
     display: flex;
     justify-content: space-between;
 }
 
-.about_2 p{
+.about_2 p {
     font-family: bold;
     font-size: 14px;
 }
 
-#opis{
+#opis {
     font-family: regular;
     font-size: 14px;
     color: #B3B3B3;
 }
 
 /* Popular Products */
-
-.popular{
+.popular {
     padding-bottom: 7%;
     border-bottom: solid 2px #F2F2F2;
 }
 
-.txt_popular{
+.txt_popular {
     margin-top: 10%;
 }
 
-.txt_popular h1{
+.txt_popular h1 {
     font-size: 36px;
     font-family: bold;
     line-height: 44px;
@@ -459,7 +412,7 @@ export default {
     width: 200px;
     display: flex;
     flex-direction: column;
-    align-items: center;   
+    align-items: center;
 }
 
 .product-name {
@@ -502,19 +455,18 @@ export default {
 }
 
 /* Services */
-
-.services{
+.services {
     margin-top: 10%;
 }
 
-.services h2{
+.services h2 {
     font-family: medium;
     font-size: 24px;
     color: #333;
     margin-bottom: 40px;
 }
 
-.service_cards{
+.service_cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивная сетка */
     gap: 20px;
@@ -522,23 +474,23 @@ export default {
     align-items: stretch;
 }
 
-.service_card{
+.service_card {
     background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  text-align: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
 }
 
 .service_card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 #service_card_heading {
@@ -547,13 +499,13 @@ export default {
     color: black;
 }
 
-.service_card p{
+.service_card p {
     font-size: 14px;
     color: #B3B3B3;
     height: 40px;
 }
 
-.card_footer_service{
+.card_footer_service {
     margin-top: auto; /* Отправляет footer вниз карточки */
     width: 100%;
     display: flex;
@@ -586,13 +538,10 @@ export default {
 
 .card_footer_service button img {
     margin-left: 8px; /* Отступ между текстом и иконкой */
-    width: 20px;
-    height: 20px;
 }
 
 /* reviews */
-
-.company{
+.company {
     margin-top: 10%;
     background-image: url('@/assets/img/main/company.svg'); /* Путь к вашему изображению */
     background-size: cover;
@@ -655,12 +604,11 @@ export default {
 }
 
 /* events */
-
-.events{
+.events {
     margin-top: 15%;
 }
 
-.events h1{
+.events h1 {
     font-family: bold;
     font-size: 36px;
 }
@@ -670,32 +618,32 @@ export default {
     text-decoration-color: #FFA630; /* Цвет подчеркивания */
 }
 
-.event{
+.event {
     margin-top: 5%;
     display: flex;
     justify-content: space-between;
 }
 
-.event1, .event2{
+.event1, .event2 {
     width: 400px;
 }
 
-.event1 h1, .event2 h1{
+.event1 h1, .event2 h1 {
     font-family: bold;
     font-size: 14px;
 }
 
-.event1 p, .event2 p{
+.event1 p, .event2 p {
     font-family: regular;
     font-size: 14px;
     color: #B3B3B3;
 }
 
-.button_container{
+.button_container {
     text-align: right;
 }
 
-.button_container button{
+.button_container button {
     width: 200px;
     margin-top: 5%;
     border: 2px #00997a solid;
