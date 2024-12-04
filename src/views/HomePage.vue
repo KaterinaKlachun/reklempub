@@ -112,7 +112,7 @@
     <!-- Reviews -->
     <div class="company">
       <!-- Первая кнопка "Больше отзывов" -->
-      <button class="button_reviews">Больше отзывов <img src="@/assets/img/main/review.svg" alt="Иконка отзывов"></button>
+      <button class="button_reviews" @click="goToReview">Больше отзывов <img src="@/assets/img/main/review.svg" alt="Иконка отзывов"></button>
       <!-- Вторая кнопка "Подробнее" -->
       <button class="button_details" @click="goToPortfolio">Подробнее</button>
     </div>
@@ -254,6 +254,9 @@ export default {
     },
     goToService(serviceId) {
       this.$router.push({ name: 'service', params: { id: serviceId } });
+    },
+    goToReview() {
+      this.$router.push("/review");
     },
   },
 };

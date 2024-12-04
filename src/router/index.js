@@ -10,6 +10,7 @@ import PortfolioPage from '../views/PortfolioPage.vue';
 import ServicesPage from '../views/ServicesPage.vue';
 import ProductPage from '../views/ProductPage.vue';
 import ServicePage from '@/views/ServicePage.vue';
+import ReviewPage from '@/views/ReviewPage.vue';
 
 const routes = [
   { path: '/', component: HomePage },
@@ -31,6 +32,7 @@ const routes = [
     component: ServicePage,
     props: true, // Позволяет передавать параметры маршрута как пропсы
   },
+  { path: '/review', component: ReviewPage },
 ];
 
 const router = createRouter({
