@@ -16,7 +16,6 @@
       <section class="about">
         <div class="left">
           <h1><span>Пара слов</span> о нас,<br> производстве<br> и брендинге</h1>
-          <p>В своём стремлении улучшить пользовательский<br> опыт мы упускаем, что ключевые особенности<br> структуры проекта.</p>
           <p>В своём стремлении улучшить пользовательский<br> опыт мы упускаем, что ключевые особенности<br> структуры проекта опыт мы упускаем, что<br> ключевые особенности структуры проекта.</p>
           <button class="company_button" @click="goToAbout">О компании</button>
         </div>
@@ -55,8 +54,8 @@
         </div>
         <div class="cards">
           <div class="card" v-for="(product, index) in randomProducts" :key="index">
-            <img :src="product.imgSrc" alt="Картинка продукта" />
-            <p class="product-name">{{ product.name }}</p>
+            <img :src="product.image_url" alt="Картинка продукта" />
+            <p class="product-name">{{ product.title }}</p>
             <div class="card_footer_catalog">
               <button @click="goToProduct(product)">Выбрать вид</button>
               <p class="price">{{ product.price }} ₽</p>
@@ -140,87 +139,31 @@
 </template>
 
 <script>
+import supabase from '@/supabase';
+
 export default {
-  name: "MainPage", // Имя компонента
-  props: ['category', 'id'], // добавьте эти props
+  name: "MainPage",
   data() {
     return {
-      // Массив товаров с информацией о каждом
-      products: [
-        {id: 1, category: "mugs", name: "Бокал для айриш кофе", price: 214, imgSrc: require("@/assets/img/catalog/icon/1.svg") },
-        {id: 2, category: "mugs", name: "Кружка «Sublime Color XL»", price: 324, imgSrc: require("@/assets/img/catalog/icon/2.svg") },
-        {id: 3, category: "mugs", name: "Бокал для шампанского «Brut»", price: 664, imgSrc: require("@/assets/img/catalog/icon/3.svg") },
-        {id: 4, category: "mugs", name: "Кружка «Cone»", price: 211, imgSrc: require("@/assets/img/catalog/icon/4.svg") },
-        {id: 5, category: "mugs", name: "Кофейная пара классической формы", price: 392, imgSrc:require ("@/assets/img/catalog/icon/5.svg") },
-        {id: 6, category: "mugs", name: "Кофейная пара прямой формы", price: 392, imgSrc:require ("@/assets/img/catalog/icon/6.svg") },
-        {id: 7, category: "mugs", name: "Кружка «Nancy Line»", price: 294, imgSrc: require("@/assets/img/catalog/icon/7.svg") },
-        {id: 8, category: "mugs", name: "Кружка «Countryside S» ", price: 269, imgSrc: require("@/assets/img/catalog/icon/8.svg") },
-        {id: 9, category: "mugs", name: "Кружка «Grain» из натуральных волокон", price: 478, imgSrc: require("@/assets/img/catalog/icon/9.svg") },
-        {id: 10, category: "mugs", name: "Кружка «Good Day»", price: 235, imgSrc:require ("@/assets/img/catalog/icon/10.svg") },
-        {id: 11, category: "mugs", name: "Кружка «Марго»", price: 145, imgSrc:require ("@/assets/img/catalog/icon/11.svg") },
-        {id: 12, category: "mugs", name: "Кружка «Oreo»", price: 319, imgSrc: require("@/assets/img/catalog/icon/12.svg") },
-        {id: 13, category: "mugs", name: "Кружка «Мерсер»", price: 340, imgSrc:require ("@/assets/img/catalog/icon/13.svg") },
-        {id: 14, category: "mugs", name: "Кружка «Марко»", price: 274, imgSrc:require ("@/assets/img/catalog/icon/14.svg") },
-        {id: 15, category: "mugs" ,name: "Кружка «Denpasar» с крышкой", price: 590, imgSrc:require ("@/assets/img/catalog/icon/15.svg") },
-        {id: 16, category: "mugs", name: "Керамическая кружка «Pascal»", price: 1121, imgSrc: require("@/assets/img/catalog/icon/16.svg") },
-        {id: 17, category: "thermoses", name: "Вакуумная герметичная термокружка «Inter»", price: 600,  imgSrc:require ("@/assets/img/catalog/icon2/1.svg") },
-        {id: 18, category: "thermoses",name: "Вакуумная термокружка «Sense»", price: 700, imgSrc: require("@/assets/img/catalog/icon2/2.svg") },
-        {id: 19, category: "thermoses",name: "Вакуумная термокружка «Valhalla»", price: 700, imgSrc:require ("@/assets/img/catalog/icon2/3.svg") },
-        {id: 20, category: "thermoses",name: "Вакуумная термокружка c кнопкой «Waterline»", price: 700, imgSrc:require ("@/assets/img/catalog/icon2/4.svg") },
-        {id: 21, category: "thermoses",name: "Термокружка с медной изоляцией «Waterline»", price: 700, imgSrc:require ("@/assets/img/catalog/icon2/5.svg") },
-        {id: 22, category: "thermoses",name: "Вакуумная термокружка с кнопкой «Streamline»", price: 700, imgSrc:require ("@/assets/img/catalog/icon2/6.svg") },
-        {id: 23, category: "thermoses",name: "Вакуумная термокружка с кнопкой «Upgrade»", price: 700, imgSrc:require ("@/assets/img/catalog/icon2/7.svg") },
-        {id: 24, category: "thermoses",name: "Кружка с термоизоляцией «Silence»", price: 700, imgSrc: require("@/assets/img/catalog/icon2/8.svg") },
-        {id: 25, category: "thermoses",name: "Кружка с термоизоляцией треугольная", price: 700, imgSrc:require ("@/assets/img/catalog/icon2/9.svg") },
-        {id: 26, category: "thermoses",name: "Кружка с термоизоляцией  с металлической крышкой", price: 700, imgSrc:require ("@/assets/img/catalog/icon2/10.svg") },
-        {id: 27, category: "thermoses",name: "Кружка с термоизоляцией волнистая", price: 700, imgSrc: require("@/assets/img/catalog/icon2/11.svg") },
-        {id: 28, category: "thermoses",name: "Кружка стальная «Alaska» с крышкой слайдером", price: 700, imgSrc:require ("@/assets/img/catalog/icon2/12.svg") },
-        {id: 29, category: "thermoses",name: "Пластиковый стакан «Take away»", price: 700, imgSrc: require("@/assets/img/catalog/icon2/13.svg") },
-        {id: 30, category: "thermoses",name: "Стакан-тамблер «Moment» с кофейной крышкой", price: 700, imgSrc:require ("@/assets/img/catalog/icon2/14.svg") },
-        {id: 31, category: "thermoses",name: "Термокружка «Jar»", price: 700, imgSrc:require ("@/assets/img/catalog/icon2/15.svg") },
-        {id: 32, category: "thermoses",name: "Термокружка «Klein» ", price: 700, imgSrc:require ("@/assets/img/catalog/icon2/16.svg") },
-        {id: 33, category: "accessories", name: "Брелок «Alen» круглый", price: 81, imgSrc:require ("@/assets/img/catalog/icon3/1.svg") },
-        {id: 34, category: "accessories",name: "Брелок прямоугольный «Alen 2.0»", price: 166, imgSrc:require ("@/assets/img/catalog/icon3/2.svg") },
-        {id: 35, category: "accessories",name: "Брелок «Mondo»", price: 187, imgSrc:require ("@/assets/img/catalog/icon3/3.svg") },
-        {id: 36, category: "accessories",name: "Брелок-открывалка «Dao»", price: 86, imgSrc:require ("@/assets/img/catalog/icon3/4.svg") },
-        {id: 37, category: "accessories",name: "Антистресс «Кубик»", price: 176, imgSrc:require ("@/assets/img/catalog/icon3/5.svg") },
-        {id: 38, category: "accessories",name: "Антистресс «Каска»", price: 69, imgSrc:require ("@/assets/img/catalog/icon3/6.svg") },
-        {id: 39, category: "accessories",name: "Антистресс «Куб»", price: 49, imgSrc:require ("@/assets/img/catalog/icon3/7.svg") },
-        {id: 40, category: "accessories",name: "Зеркало складное", price: 450, imgSrc:require ("@/assets/img/catalog/icon3/8.svg") },
-        {id: 41, category: "accessories",name: "Брелок «Triangle»", price: 90, imgSrc:require ("@/assets/img/catalog/icon3/9.svg") },
-        {id: 42, category: "accessories",name: "Брелок-рулетка «Домик»", price: 90, imgSrc:require ("@/assets/img/catalog/icon3/10.svg") },
-        {id: 43, category: "accessories",name: "Брелок-рулетка «Block»", price: 60, imgSrc:require ("@/assets/img/catalog/icon3/11.svg") },
-        {id: 44, category: "accessories",name: "Сумка с клапаном", price: 500, imgSrc:require ("@/assets/img/catalog/icon3/12.svg") },
-        {id: 45, category: "accessories",name: "Брелок металл «жетон»", price: 65, imgSrc:require ("@/assets/img/catalog/icon3/13.svg") },
-        {id: 46, category: "accessories",name: "Брелок из нержавеющей стали «круг»", price: 30, imgSrc:require ("@/assets/img/catalog/icon3/14.svg") },
-        {id: 47, category: "accessories",name: "Брелок акрил прямоугольник", price: 50, imgSrc:require ("@/assets/img/catalog/icon3/15.svg") },
-        {id: 48, category: "accessories",name: "Зажигалка  бензиновая", price: 250, imgSrc:require ("@/assets/img/catalog/icon3/16.svg") },
-        {id: 49, category: "chancellery", name: "Алюминиевая шариковая ручка «Joyce»", price: 107, imgSrc:require ("@/assets/img/catalog/icon4/1.svg") },
-        {id: 50, category: "chancellery", name: "Шариковая ручка «PET PEN PRO»", price: 177, imgSrc:require ("@/assets/img/catalog/icon4/2.svg") },
-        {id: 51, category: "chancellery", name: "Ручка картонная шариковая «Эко»", price: 30, imgSrc:require ("@/assets/img/catalog/icon4/3.svg") },
-        {id: 52, category: "chancellery", name: "Ручка soft-touch шариковая «Plane»", price: 40, imgSrc:require ("@/assets/img/catalog/icon4/4.svg") },
-        {id: 53, category: "chancellery", name: "Ручка soft-touch шариковая «Taper»", price: 50, imgSrc:require ("@/assets/img/catalog/icon4/5.svg") },
-        {id: 54, category: "chancellery", name: "Ручка soft-touch шариковая «Zorro»", price: 50, imgSrc:require ("@/assets/img/catalog/icon4/6.svg") },
-        {id: 55, category: "chancellery", name: "Ручка  шариковая «Prodir»", price: 146, imgSrc:require ("@/assets/img/catalog/icon4/7.svg") },
-        {id: 56, category: "chancellery", name: "Конференц сумка «Session»", price: 686, imgSrc:require ("@/assets/img/catalog/icon4/8.svg") },
-        {id: 57, category: "chancellery", name: "Конференц сумка для документов «Congress»", price: 667, imgSrc:require ("@/assets/img/catalog/icon4/9.svg") },
-        {id: 58, category: "chancellery", name: "Конференц сумка для документов «Event»", price: 511, imgSrc:require ("@/assets/img/catalog/icon4/10.svg") },
-        {id: 59, category: "chancellery", name: "Блокнот «Pocket»", price: 685, imgSrc:require ("@/assets/img/catalog/icon4/11.svg") },
-        {id: 60, category: "chancellery", name: "Бизнес-блокнот А5 с клапаном «Fabrizio»", price: 1506, imgSrc:require ("@/assets/img/catalog/icon4/12.svg") },
-        {id: 61, category: "chancellery", name: "Блокнот A6 «Stitch»", price: 112, imgSrc:require ("@/assets/img/catalog/icon4/13.svg") },
-        {id: 62, category: "chancellery", name: "Блокнот A7 «Rainbow S»", price: 175, imgSrc:require ("@/assets/img/catalog/icon4/14.svg") },
-        {id: 63, category: "chancellery", name: "Набор стикеров «Expose» с ручкой и блокнотом А7", price: 170, imgSrc:require ("@/assets/img/catalog/icon4/15.svg") },
-        {id: 64, category: "chancellery", name: "Блокнот «Priestly» с ручкой", price: 417, imgSrc:require ("@/assets/img/catalog/icon4/16.svg") },
-      ],
-      randomProducts: [], // массив для случайных товаров
-      arrowSrc: require('@/assets/img/arrow_right_green.svg'), // Начальный путь к изображению стрелки
+      products: [],
+      randomProducts: [] // Массив для 3 случайных товаров
     };
   },
-  created() {
-    this.shuffleProducts(); // Перемешиваем товары при загрузке
+  async created() {
+    await this.fetchProducts();
   },
-
   methods: {
+    async fetchProducts() {
+      const { data, error } = await supabase
+        .from('catalog_products')  // Имя таблицы
+        .select('*');
+      if (error) {
+        console.error('Ошибка при получении товаров:', error);
+        return;
+      }
+      this.products = data;
+      this.shuffleProducts(); // Перемешиваем товары
+    },
     goToCatalog() {
       this.$router.push("/catalog");
     },
@@ -240,17 +183,19 @@ export default {
         this.arrowSrc = require('@/assets/img/arrow_right_green.svg'); // При выходе
       }
     },
-    goToProduct(product) {
-      // Проверка наличия `category` и `id` перед маршрутизацией
-      if (product && product.category && product.id) {
-        this.$router.push(`/product/${product.category}/${product.id}`); // Переход на страницу товара с id
-      } else {
-        console.error("Товар не имеет необходимого идентификатора или категории:", product);
-      }
-    },
     shuffleProducts() {
-        // Перемешиваем товары случайным образом и берем 3 случайных
-        this.randomProducts = this.products.sort(() => Math.random() - 0.5).slice(0, 3);
+      // Перемешиваем товары случайным образом и берём 3 случайных
+      this.randomProducts = [...this.products]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 3);
+    },
+    goToProduct(product) {
+      // Проверяем, есть ли `category` и `id`
+      if (product && product.category && product.id) {
+        this.$router.push(`/product/${product.category}/${product.id}`); // Формируем маршрут
+      } else {
+        console.error("Товар не имеет категории или идентификатора:", product);
+      }
     },
     goToService(serviceId) {
       this.$router.push({ name: 'service', params: { id: serviceId } });
@@ -260,7 +205,6 @@ export default {
     },
   },
 };
-
 </script>
 
 <style scoped>
