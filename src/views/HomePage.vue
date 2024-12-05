@@ -272,7 +272,7 @@ export default {
     background-repeat: no-repeat;
     /* Адаптация по пропорциям картинки */
     position: relative;
-    padding-top: calc(100% * (768 / 1920)); /* height и width пропорции картинки */
+    padding-top: calc(100% * (768 / 1968)); /* height и width пропорции картинки */
 }
 
 .txt {
