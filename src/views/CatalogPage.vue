@@ -42,6 +42,9 @@
         @click="viewProduct(product.id)"
       />
     </div>
+
+    <!-- Отображаем ошибку, если она возникла -->
+    <div v-if="error" class="error">{{ error }}</div>
   </div>
 </template>
 
@@ -66,22 +69,28 @@ export default {
       },
       displayedProducts: [], // Список товаров для отображения
       selectedCategory: "mugs", // Категория по умолчанию
+      error: null, // Ошибка загрузки данных
     };
   },
   methods: {
     async loadProducts(category) {
-      // Загружаем товары для выбранной категории из Supabase
-      const { data: products, error } = await supabase
-        .from("catalog_products")
-        .select("*")
-        .eq("category", category);
+      this.selectedCategory = category; // Обновляем выбранную категорию
+      this.error = null; // Сбрасываем ошибку при новой загрузке
+      try {
+        const { data: products, error } = await supabase
+          .from("catalog_products")
+          .select("*")
+          .eq("category", category);
 
-      if (error) {
-        console.error("Ошибка загрузки продуктов:", error);
-        return;
+        if (error) {
+          throw error; // Если ошибка, выбрасываем исключение
+        }
+
+        this.displayedProducts = products; // Обновляем список товаров
+      } catch (err) {
+        this.error = "Ошибка при загрузке товаров: " + err.message; // Обрабатываем ошибку
+        console.error(this.error);
       }
-
-      this.displayedProducts = products; // Обновляем список товаров
     },
     viewProduct(productId) {
       const category = this.selectedCategory;
@@ -159,5 +168,13 @@ export default {
   max-width: 1200px;
   padding: 20px;
   margin: 0 auto;
+}
+
+/* Стиль для отображения ошибки */
+.error {
+  color: red;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
 }
 </style>

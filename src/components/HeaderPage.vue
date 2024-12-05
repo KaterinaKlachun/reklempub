@@ -12,7 +12,6 @@
         <ul class="nav-links">
           <li><router-link to="/about"><p>О компании</p></router-link></li>
           <li><router-link to="/catalog"><p>Каталог</p></router-link></li>
-          <li><router-link to="/services"><p>Услуги</p></router-link></li>
           <li><router-link to="/contacts"><p>Контакты</p></router-link></li>
           <li>
             <img

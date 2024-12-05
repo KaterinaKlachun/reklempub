@@ -1,16 +1,15 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-// Синхронный импорт всех компонентов
-import HomePage from '../views/HomePage.vue';
-import AboutPage from '../views/AboutPage.vue';
-import CatalogPage from '../views/CatalogPage.vue';
-import ContactsPage from '../views/ContactsPage.vue';
-import NewsPage from '../views/NewsPage.vue';
-import PortfolioPage from '../views/PortfolioPage.vue';
-import ServicesPage from '../views/ServicesPage.vue';
-import ProductPage from '../views/ProductPage.vue';
-import ServicePage from '@/views/ServicePage.vue';
-import ReviewPage from '@/views/ReviewPage.vue';
+// Ленивый импорт всех компонентов
+const HomePage = () => import('../views/HomePage.vue');
+const AboutPage = () => import('../views/AboutPage.vue');
+const CatalogPage = () => import('../views/CatalogPage.vue');
+const ContactsPage = () => import('../views/ContactsPage.vue');
+const NewsPage = () => import('../views/NewsPage.vue');
+const PortfolioPage = () => import('../views/PortfolioPage.vue');
+const ProductPage = () => import('../views/ProductPage.vue');
+const ServicePage = () => import('@/views/ServicePage.vue');
+const ReviewPage = () => import('@/views/ReviewPage.vue');
 
 const routes = [
   { path: '/', component: HomePage },
@@ -19,7 +18,6 @@ const routes = [
   { path: '/contacts', component: ContactsPage },
   { path: '/news', component: NewsPage },
   { path: '/portfolio', component: PortfolioPage },
-  { path: '/services', component: ServicesPage },
   {
     path: '/product/:category/:id',
     name: 'ProductPage',
