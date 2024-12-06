@@ -20,7 +20,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-/* стили для категории */
-</style>
