@@ -1,23 +1,33 @@
 <template>
-    <!-- SEO Meta -->
-    <meta name="description" content="Контактная информация компании Reklem." />
+    
+<!-- SEO Meta -->
   
-    <!-- Info Section -->
-    <div class="info"></div>
+<meta name="description" content="Контактная информация компании Reklem." />
   
-    <div class="wrapper">
-      <div class="cat">
-        <h1><span>Контакты</span></h1>
-        <p>
+<!-- Info Section -->
+  
+<div class="info"></div>
+  
+<section>
+
+  <div class="wrapper">
+    <div class="cat">
+      <h1><span>Контакты</span></h1>
+      <p>
           Следует отметить, что разбавленное изрядной долей эмпатии, рациональное мышление требует определения
           и уточнения прогресса профессионального сообщества. Но глубокий уровень погружения влечет за собой процесс
           внедрения и модернизации глубокомысленных рассуждений.
-        </p>
-      </div>
+      </p>
     </div>
-  
-    <!-- Contact Section -->
-    <div class="wrapper">
+  </div>
+
+</section>
+
+<!-- Contact Section -->
+
+<section>
+
+  <div class="wrapper">
       <div class="contact">
         <div class="adress">
           <h3>Адрес:</h3>
@@ -42,9 +52,14 @@
         </div>
       </div>
     </div>
-  
-    <!-- Intelligence Section -->
-    <div class="wrapper">
+
+</section>
+
+<!-- Intelligence Section -->
+
+<section>
+
+  <div class="wrapper">
       <div class="intelligence">
         <div class="left">
           <img src="@/assets/img/contacts/photo.svg" alt="photo" />
@@ -52,8 +67,6 @@
             <h3>Попович Андрей Александрович</h3>
             <p>Менеджер по работе с клиентами г. Москва</p>
             <div class="down_left">
-              <img src="@/assets/img/contacts/telegram.svg" id="networks" alt="telegram" />
-              <img src="@/assets/img/contacts/whatsapp.svg" id="networks" alt="whatsapp" />
               <p>+7 (925) 272-87-48</p>
               <p>man7@reklem.ru</p>
             </div>
@@ -69,28 +82,69 @@
             <p>Сб-Вс:</p>
             <p id="time">Выходной</p>
           </div>
-          <img src="@/assets/img/contacts/instargam.svg" alt="instagram" />
-          <img src="@/assets/img/contacts/facebook.svg" alt="facebook" />
-          <img src="@/assets/img/contacts/youtube.svg" alt="youtube" />
+          <div class="social-buttons">
+            <button
+              v-for="(button, index) in buttons"
+              :key="index"
+              class="social-button"
+              @click="handleClick(button.link)"
+            >
+              <img :src="button.icon" :alt="button.alt" class="button-icon" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  
-    <!-- Map Section -->
-    <div class="wrapper">
+
+</section>
+    
+<!-- Map Section -->
+
+<section>
+
+  <div class="wrapper">
       <div class="map">
         <img src="@/assets/img/contacts/map.svg" alt="Карта" />
       </div>
     </div>
-  </template>
+
+</section>
+
+</template>
   
-  <script>
+<script>
   export default {
     name: "ContactsPage",
+    data() {
+    return {
+      buttons: [
+        {
+          icon: require('@/assets/img/contacts/youtube.svg'),
+          alt: "YouTube",
+          link: "https://youtube.com",
+        },
+        {
+          icon: require('@/assets/img/contacts/telegram.svg'),
+          alt: "telegram",
+          link: "https://t.me/reklempub",
+        },
+        {
+          icon: require('@/assets/img/contacts/whatsapp.svg'),
+          alt: "whatsapp",
+          link: "https://whatsapp.com",
+        },
+      ],
+    };
+  },
+  methods: {
+    handleClick(link) {
+      window.open(link, "_blank");
+    },
+  },
   };
-  </script>
+</script>
   
-  <style scoped>
+<style scoped>
   /* Info Section */
   .info {
     background-image: url('@/assets/img/contacts/back.svg');
@@ -159,9 +213,13 @@
   
   .left {
     display: flex;
-    width: 720px;
+    width: 50%;
   }
   
+  .right{
+    width: 20%;
+  }
+
   .left img {
     height: 100%;
   }
@@ -188,6 +246,10 @@
     margin-top: 10%;
   }
   
+  .down_left p{
+    color: black;
+  }
+
   img#networks {
     width: 35px;
   }
@@ -231,5 +293,32 @@
       height: 50vh;
     }
   }
-  </style>
-  
+
+  .social-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.social-button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.social-button img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.social-button img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+</style>
