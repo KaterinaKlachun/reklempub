@@ -1,6 +1,6 @@
 <template>
     <!-- Основной контейнер -->
-    <div class="wrapper">
+    <section class="wrapper">
         <!-- Блок FAQ -->
         <div class="faq">
             <!-- Заголовок FAQ -->
@@ -75,7 +75,7 @@
 
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

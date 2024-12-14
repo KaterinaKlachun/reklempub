@@ -1,7 +1,7 @@
 <template>
   <!-- Блок подвала -->
   <footer>
-    <div class="wrapper">
+    <section class="wrapper">
       <!-- Контейнер для содержимого подвала -->
       <div class="footer-container">
 
@@ -46,7 +46,7 @@
 
         </div>
       </div>
-    </div>
+    </section>
   </footer>
 </template>
 

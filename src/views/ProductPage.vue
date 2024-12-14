@@ -1,14 +1,14 @@
 <template>
   <!-- Информация о странице -->
-  <div class="info">
+  <section class="info">
     <div class="pagination">
       <router-link to="/">Главная / </router-link>
       <router-link to="/catalog">Каталог /</router-link>
     </div>
-  </div>
+  </section>
 
   <!-- Информация о продукте -->
-  <div v-if="product" class="wrapper">
+  <section v-if="product" class="wrapper">
     <div class="product">
       <div class="product_left">
         <img :src="selectedColorImage" :alt="product.name" class="product-image" />
@@ -31,13 +31,15 @@
         </div>
         <p id="product-price" class="product-price">{{ product.price }} ₽</p>
         <div class="add-to-cart-container">
-          <button class="add-to-cart-button" @click="addToCart">В корзину</button>
+          <button class="add-to-cart-button" @click="addToCart" aria-label="Добавить в корзину">
+            В корзину
+          </button>
           <div class="quantity-counter">
-            <button @click="selectedQuantity = Math.max(1, selectedQuantity - 1)" class="decrement-button">
+            <button @click="selectedQuantity = Math.max(1, selectedQuantity - 1)" class="decrement-button" aria-label="Уменьшить количество">
               <img src="@/assets/img/product/minus.svg" alt="Уменьшить количество" />
             </button>
             <span>{{ selectedQuantity }}</span>
-            <button @click="selectedQuantity++" class="increment-button">
+            <button @click="selectedQuantity++" class="increment-button" aria-label="Увеличить количество">
               <img src="@/assets/img/product/plus.svg" alt="Увеличить количество" />
             </button>
           </div>
@@ -48,10 +50,11 @@
       <h1>Описание</h1>
       <p>{{ product.description }}</p>
     </div>
-  </div>
-  <div v-else>
+  </section>
+
+  <section v-else>
     <p>Загрузка данных о продукте...</p>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -126,16 +129,20 @@ export default {
 <style scoped>
   .product {
     display: flex;
-    margin-top: 10%;
+    flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 10%;
   }
 
   .product_left img {
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
   }
 
   .product_right {
-    width: 50%;
+    width: 100%;
+    max-width: 50%;
+    padding-left: 2%;
   }
 
   .product_right p {
@@ -189,8 +196,8 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: center; /* горизонтальное выравнивание */
-    align-items: center; /* вертикальное выравнивание */
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: white;
     font-family: medium;
@@ -243,5 +250,23 @@ export default {
   .product_info p {
     font-family: regular;
     font-size: 0.875rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .product {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product_left,
+    .product_right {
+      width: 100%;
+      padding-left: 0;
+    }
+
+    .add-to-cart-container {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 </style>

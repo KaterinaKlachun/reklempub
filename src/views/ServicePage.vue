@@ -1,8 +1,8 @@
 <template>
   <!-- Info -->
-  <div class="info"></div>
+  <section class="info"></section>
 
-  <div class="wrapper">
+  <section class="wrapper">
     <div class="cat">
       <h1>
         <span>Качественное и надежное решение</span> для ваших индивидуальных задач
@@ -18,10 +18,10 @@
         включая металл, пластик, ткань и бумагу.
       </p>
     </div>
-  </div>
+  </section>
 
   <!-- Service -->
-  <div class="wrapper">
+  <section class="wrapper">
     <div class="service-page">
       <header class="service-header">
         <div class="service-header-content">
@@ -31,8 +31,8 @@
         <img :src="service.image" :alt="service.title" class="service-image" />
       </header>
 
-      <section class="service-details">
-        <h1>Подробнее о {{ service.title }}</h1>
+      <div class="service-details">
+        <h2>Подробнее о {{ service.title }}</h2> <!-- h1 заменен на h2 -->
         <p class="service-description">{{ service.description }}</p>
         <ul>
           <li
@@ -43,9 +43,9 @@
             <strong>{{ advantage.title }}:</strong> {{ advantage.text }}
           </li>
         </ul>
-      </section>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -110,7 +110,7 @@ export default {
 }
 
 .service-header-content h1,
-.service-details h1 {
+.service-details h2 { 
   font-family: bold;
   font-size: 36px;
   line-height: 44px;

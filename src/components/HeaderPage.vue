@@ -1,7 +1,7 @@
 <template>
   <!-- Шапка сайта -->
   <header>
-    <div class="wrapper">
+    <section class="wrapper">
       <nav id="head">
         <!-- Логотип -->
         <div class="logo">
@@ -48,7 +48,7 @@
         </div>
         <p v-else class="no-results">Совпадений не найдено</p>
       </div>
-    </div>
+    </section>
   </header>
 </template>
 

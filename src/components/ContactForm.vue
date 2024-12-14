@@ -1,6 +1,6 @@
 <template>
     <!-- Основной контейнер -->
-    <div class="wrapper">
+    <section class="wrapper">
         <!-- Форма обратной связи -->
         <div class="contact_form">
             <!-- Текстовый блок -->
@@ -24,7 +24,7 @@
                 </button>
             </form>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

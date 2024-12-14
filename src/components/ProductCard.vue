@@ -1,6 +1,6 @@
 <template>
   <!-- Карточка продукта -->
-  <div class="product-card">
+  <section class="product-card">
     <!-- Изображение продукта -->
     <img :src="product.image_url" :alt="product.title" class="product-image" />
 
@@ -12,7 +12,7 @@
 
     <!-- Цена продукта -->
     <p class="product-price">{{ product.price }} ₽</p>
-  </div>
+  </section>
 </template>
 
 <script>

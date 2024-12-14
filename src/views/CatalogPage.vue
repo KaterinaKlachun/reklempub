@@ -1,10 +1,10 @@
 <template>
-  <!-- info -->
-  <div class="info">
-    <!-- info content here -->
-  </div>
+  <!-- Info Section -->
+  <section class="info">
+    <!-- Info content here -->
+  </section>
 
-  <div class="wrapper">
+  <section class="wrapper">
     <div class="cat">
       <h1><span>Каталог</span></h1>
       <p>
@@ -13,12 +13,12 @@
         процесс внедрения и модернизации глубокомысленных рассуждений.
       </p>
     </div>
-  </div>
+  </section>
 
-  <!-- categories -->
-  <div class="wrapper">
+  <!-- Categories Section -->
+  <section class="wrapper">
     <div class="categories">
-      <p>Категории</p>
+      <h2>Категории</h2>
       <div class="category">
         <Category
           v-for="(category, key) in categories"
@@ -32,7 +32,7 @@
     </div>
 
     <div id="catalog-container" class="catalog_container">
-      <!-- Здесь отображаются товары -->
+      <!-- Displaying Products -->
       <ProductCard
         v-for="product in displayedProducts"
         :key="product.id"
@@ -43,9 +43,9 @@
       />
     </div>
 
-    <!-- Отображаем ошибку, если она возникла -->
+    <!-- Displaying Error if Present -->
     <div v-if="error" class="error">{{ error }}</div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -108,7 +108,7 @@ export default {
 </script>
 
 <style scoped>
-/* info */
+/* Info Section */
 .info {
   background-image: url('@/assets/img/catalog/info_back.svg');
   display: flex;
@@ -128,12 +128,12 @@ export default {
   }
 }
 
-/* categories */
+/* Categories Section */
 .categories {
   margin-top: 20%;
 }
 
-.categories p {
+.categories h2 {
   font-family: medium;
   font-size: 24px;
 }
@@ -160,7 +160,7 @@ export default {
   color: black;
 }
 
-/* catalog container */
+/* Catalog Container */
 .catalog_container {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 колонки одинаковой ширины */
@@ -170,7 +170,7 @@ export default {
   margin: 0 auto;
 }
 
-/* Стиль для отображения ошибки */
+/* Error Styling */
 .error {
   color: red;
   font-size: 1.2rem;

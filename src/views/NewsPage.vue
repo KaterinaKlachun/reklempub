@@ -1,20 +1,19 @@
 <template>
   <!-- info -->
-
-  <div class="info">
+  <section class="info">
     <div class="pagination">
-          <a href=""><router-link to="/">Главная /</router-link></a>
-      </div>
-  </div>
+      <a href=""><router-link to="/">Главная /</router-link></a>
+    </div>
+  </section>
 
-  <div class="wrapper">
-      <div class="cat">
-          <h1><span>Новости</span></h1>
-      </div>
-  </div>
+  <section class="wrapper">
+    <div class="cat">
+      <h1><span>Новости</span></h1>
+    </div>
+  </section>
 
   <!-- news -->
-  <div class="wrapper">
+  <section class="wrapper">
     <div id="news-container" class="news_container">
       <!-- Рендеринг новостей с помощью v-for -->
       <div v-for="(newsItem, index) in newsList" :key="index" class="news-card">
@@ -23,15 +22,13 @@
         <p class="news-date">{{ newsItem.date }}</p>
       </div>
     </div>
-  </div>
-
-
+  </section>
 </template>
   
-  <script>
-  export default {
-    name: 'NewsPage',
-    data() {
+<script>
+export default {
+  name: 'NewsPage',
+  data() {
     return {
       newsList: [
         { title: "Маски теперь в продаже", description: "Принимая во внимание показатели успешности, синтетическое тестирование способствует повышению качества анализа существующих паттернов поведения. Противоположная точка зрения подразумевает.", date: "02.10.2024" },
@@ -50,61 +47,57 @@
     // Например, с помощью axios, если новостей много и они приходят с сервера
   }
 }
-  </script>
-  
+</script>
+
 <style scoped>
-
 /* info */
-
-.info{
-    height: 250px;
-    background-image: url('@/assets/img/news/back.svg');
+.info {
+  height: 250px;
+  background-image: url('@/assets/img/news/back.svg');
 }
 
 /* news */
-
 .news_container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 4 колонки одинаковой ширины */
-    grid-template-rows: repeat(1fr);   /* строки с автоматической высотой */
-    gap: 20px;
-    max-width: 1200px;
-    padding: 20px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки одинаковой ширины */
+  grid-template-rows: repeat(1fr);   /* строки с автоматической высотой */
+  gap: 20px;
+  max-width: 1200px;
+  padding: 20px;
+  margin: 0 auto;
 }
 
 .news-card {
-    display: flex;
-    flex-direction: column; /* Ставим элементы в столбик */
-    align-items: center;    /* Выравниваем по центру по горизонтали */
-    justify-content: center; /* Выравниваем по центру по вертикали */
-    text-align: center;     /* Центруем текст внутри */
-    height: 170px;
-    margin-top: 25%;
+  display: flex;
+  flex-direction: column; /* Ставим элементы в столбик */
+  align-items: center;    /* Выравниваем по центру по горизонтали */
+  justify-content: center; /* Выравниваем по центру по вертикали */
+  text-align: center;     /* Центруем текст внутри */
+  height: 170px;
+  margin-top: 25%;
 }
 
 .news-title {
-    min-height: 40px; /* Задаем минимальную высоту для выравнивания */
-    margin-bottom: 8px;
-    font-size: 1rem;
-    font-family: bold;
-    margin-top: 5%;
+  min-height: 40px; /* Задаем минимальную высоту для выравнивания */
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 5%;
 }
 
-.news-description{
-    min-height: 40px; /* Задаем минимальную высоту для выравнивания */
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    font-family: "regular";
-    margin-top: 1%;
-    color: #B3B3B3;
+.news-description {
+  min-height: 40px; /* Задаем минимальную высоту для выравнивания */
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-family: "regular";
+  margin-top: 1%;
+  color: #B3B3B3;
 }
 
 .news-date {
-    color: #0FAE7D;
-    margin-top: 15%;
-    font-family: bold;
-    font-size: 0.8rem;
+  color: #0FAE7D;
+  margin-top: 15%;
+  font-weight: bold;
+  font-size: 0.8rem;
 }
-
 </style>

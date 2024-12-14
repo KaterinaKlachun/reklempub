@@ -12,22 +12,22 @@
     </section>
 
     <!-- About Us -->
-    <div class="wrapper">
-      <section class="about">
+    <section class="wrapper">
+      <div class="about">
         <div class="left">
-          <h1><span>Пара слов</span> о нас,<br> производстве<br> и брендинге</h1>
+          <h2><span>Пара слов</span> о нас,<br> производстве<br> и брендинге</h2>
           <p>В своём стремлении улучшить пользовательский<br> опыт мы упускаем, что ключевые особенности<br> структуры проекта опыт мы упускаем, что<br> ключевые особенности структуры проекта.</p>
           <button class="company_button" @click="goToAbout">О компании</button>
         </div>
         <div class="right">
           <img src="@/assets/img/main/key_cup.svg" alt="Клавиатура и кружка">
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
     <!-- About Us 2 -->
-    <div class="wrapper">
-      <section class="about_2">
+    <section class="wrapper">
+      <div class="about_2">
         <div class="card_about">
           <img src="@/assets/img/main/timer.svg" alt="Икона таймера">
           <p>Принт за 24 часа</p>
@@ -43,14 +43,14 @@
           <p>Только ОПТ</p>
           <p id="opis">Работаем на большие<br> объемы брендинга</p>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
     <!-- Popular Products -->
-    <div class="wrapper">
+    <section class="wrapper">
       <div class="popular">
         <div class="txt_popular">
-          <h1>Популярные и новые<br><span>товары</span></h1>
+          <h2>Популярные и новые<br><span>товары</span></h2>
         </div>
         <div class="cards">
           <div class="card" v-for="(product, index) in randomProducts" :key="index">
@@ -63,11 +63,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Services -->
-    <div class="wrapper">
-      <section class="services">
+    <section class="wrapper">
+      <div class="services">
         <h2>Популярные услуги</h2>
         <div class="service_cards">
           <div class="service_card">
@@ -75,7 +75,7 @@
             <p id="service_card_heading">Гравировка</p>
             <p>Нанесем на изделия логотип, рисунок или надпись</p>
             <div class="card_footer_service">
-              <button @click="goToService('engraving')">Подробнее <img src="@/assets/img/arrow_right.svg" alt="" /></button>
+              <button @click="goToService('engraving')">Подробнее <img src="@/assets/img/arrow_right.svg" alt="Стрелка вправо" /></button>
             </div>
           </div>
           <div class="service_card">
@@ -83,15 +83,15 @@
             <p id="service_card_heading">Шелкография</p>
             <p>Изображения высокого качества на любых материалах</p>
             <div class="card_footer_service">
-              <button @click="goToService('silk-screen')">Подробнее <img src="@/assets/img/arrow_right.svg" alt="" /></button>
+              <button @click="goToService('silk-screen')">Подробнее <img src="@/assets/img/arrow_right.svg" alt="Стрелка вправо" /></button>
             </div>
           </div>
           <div class="service_card">
-            <img src="@/assets/img/main/tisnen.svg" alt="Иконка теснения" />
+            <img src="@/assets/img/main/tisnen.svg" alt="Иконка тиснения" />
             <p id="service_card_heading">Тиснение</p>
             <p>Нанесение рельефного рисунка</p>
             <div class="card_footer_service">
-              <button @click="goToService('embossing')">Подробнее <img src="@/assets/img/arrow_right.svg" alt="" /></button>
+              <button @click="goToService('embossing')">Подробнее <img src="@/assets/img/arrow_right.svg" alt="Стрелка вправо" /></button>
             </div>
           </div>
           <div class="service_card">
@@ -99,42 +99,38 @@
             <p id="service_card_heading">Тампопечать</p>
             <p>Перенос изображения с помощью силиконового валика</p>
             <div class="card_footer_service">
-              <button @click="goToService('tampon-printing')">Подробнее <img src="@/assets/img/arrow_right.svg" alt="" /></button>
+              <button @click="goToService('tampon-printing')">Подробнее <img src="@/assets/img/arrow_right.svg" alt="Стрелка вправо" /></button>
             </div>
           </div>
         </div>
-      </section>
-    </div>
-
-    <!-- Categories -->
+      </div>
+    </section>
 
     <!-- Reviews -->
-    <div class="company">
-      <!-- Первая кнопка "Больше отзывов" -->
+    <section class="company">
       <button class="button_reviews" @click="goToReview">Больше отзывов <img src="@/assets/img/main/review.svg" alt="Иконка отзывов"></button>
-      <!-- Вторая кнопка "Подробнее" -->
       <button class="button_details" @click="goToPortfolio">Подробнее</button>
-    </div>
+    </section>
 
     <!-- Events -->
-    <div class="wrapper">
+    <section class="wrapper">
       <div class="events">
-        <h1>Оставайтесь <span>в курсе</span><br><span>событий</span></h1>
+        <h2>Оставайтесь <span>в курсе</span><br><span>событий</span></h2>
         <div class="event">
           <div class="event1">
-            <h1>Маски теперь в продаже</h1>
-            <p>Принимая во внимание показатели успешности, синтетическое тестирование способствует повышению качества анализа существующих паттернов поведения. Противоположная точка зрения подразумевает.</p>
+            <h3>Маски теперь в продаже</h3>
+            <p>Принимая во внимание показатели успешности, синтетическое тестирование способствует повышению качества анализа существующих паттернов поведения.</p>
           </div>
           <div class="event2">
-            <h1>Обновление сайта и новое позиционирование</h1>
-            <p>Мы вынуждены отталкиваться от того, что начало повседневной работы по формированию позиции требует от нас анализа направлений по формированию анализа прогрессивного развития.</p>
+            <h3>Обновление сайта и новое позиционирование</h3>
+            <p>Мы вынуждены отталкиваться от того, что начало повседневной работы требует анализа направлений по формированию прогрессивного развития.</p>
           </div>
         </div>
         <div class="button_container">
-          <button @click="goToNews">Все новости<img src="@/assets/img/main/new.svg" alt="Иконка нововстей"></button>
+          <button @click="goToNews">Все новости <img src="@/assets/img/main/new.svg" alt="Иконка новостей"></button>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 

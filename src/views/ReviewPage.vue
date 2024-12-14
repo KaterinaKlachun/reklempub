@@ -2,7 +2,7 @@
 
     <!--  -->
 
-    <div class="main-banner">
+    <section class="main-banner">
         <div class="wrapper">
             <h1>Отзывы о брендинге</h1>
             <div class="cards">
@@ -32,11 +32,11 @@
 
             </div>
         </div>
-    </div>
+    </section>
 
     <!--  -->
 
-    <div class="wrapper">
+    <section class="wrapper">
         <div class="exp">
             <h1>Поделитесь своим опытом</h1>
             <div class="experiences">
@@ -62,11 +62,11 @@
                 
             </div>
         </div>
-    </div>
+    </section>
 
     <!--  -->
 
-    <div class="wrapper">
+    <section class="wrapper">
         <div class="read">
             <div class="clients_l">
                 <img src="@/assets/img/review/girl.svg" alt="">
@@ -99,11 +99,11 @@
             </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!--  -->
 
-    <div class="more_reviews">
+    <section class="more_reviews">
         <div class="wrapper">
             <div class="more">
                 <h1>Читайте отзывы наших клиентов</h1>
@@ -111,25 +111,25 @@
                 <button class="review_b" @click="openModal">Показать больше отзывов</button>
             </div>
         </div>
-    </div>
+    </section>
 
 <!-- Модальное окно -->
-<div v-if="isModalOpen" class="modal">
-    <div class="modal-content">
-      <button class="close-button" @click="closeModal">×</button>
-      <div class="reviews">
-        <div v-for="review in paginatedReviews" :key="review.id" class="review">
-          <h3>{{ review.name }}</h3>
-          <p>{{ review.feedback }}</p>
-          <p><strong>Оценка: </strong>{{ review.estimation }}</p>
-        </div>
-      </div>
-      <div class="pagination">
-        <button @click="prevPage" :disabled="currentPage === 0">Назад</button>
-        <button @click="nextPage" :disabled="!hasNextPage">Вперед</button>
+<section v-if="isModalOpen" class="modal">
+  <div class="modal-content">
+    <button class="close-button" @click="closeModal">×</button>
+    <div class="reviews">
+      <div v-for="review in paginatedReviews" :key="review.id" class="review">
+        <h3>{{ review.name }}</h3>
+        <p>{{ review.feedback }}</p>
+        <p><strong>Оценка: </strong>{{ review.estimation }}</p>
       </div>
     </div>
+    <div class="pagination">
+      <button @click="prevPage" :disabled="currentPage === 0">Назад</button>
+      <button @click="nextPage" :disabled="!hasNextPage">Вперед</button>
+    </div>
   </div>
+</section>
 
 </template>
   
