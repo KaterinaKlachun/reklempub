@@ -74,8 +74,18 @@ export default {
   },
   methods: {
     async loadProducts(category) {
-      this.selectedCategory = category; // Обновляем выбранную категорию
-      this.error = null; // Сбрасываем ошибку при новой загрузке
+      this.selectedCategory = category;
+      this.error = null;
+
+      // Проверяем наличие данных в localStorage
+      const cachedData = localStorage.getItem(`products_${category}`);
+      if (cachedData) {
+        this.displayedProducts = JSON.parse(cachedData); // Используем кэшированные данные
+        console.log("Данные загружены из кэша");
+        return;
+      }
+
+      // Если данных в кэше нет, загружаем их с сервера
       try {
         const { data: products, error } = await supabase
           .from("catalog_products")
@@ -83,12 +93,16 @@ export default {
           .eq("category", category);
 
         if (error) {
-          throw error; // Если ошибка, выбрасываем исключение
+          throw error;
         }
 
-        this.displayedProducts = products; // Обновляем список товаров
+        this.displayedProducts = products;
+
+        // Сохраняем загруженные данные в localStorage
+        localStorage.setItem(`products_${category}`, JSON.stringify(products));
+        console.log("Данные загружены с сервера и сохранены в кэш");
       } catch (err) {
-        this.error = "Ошибка при загрузке товаров: " + err.message; // Обрабатываем ошибку
+        this.error = "Ошибка при загрузке товаров: " + err.message;
         console.error(this.error);
       }
     },
