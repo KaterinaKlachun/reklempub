@@ -11,7 +11,13 @@
   <section v-if="product" class="wrapper">
     <div class="product">
       <div class="product_left">
-        <img :src="selectedColorImage" :alt="product.name" class="product-image" />
+        <!-- Ленивая загрузка изображения продукта -->
+        <img 
+          :src="selectedColorImage" 
+          :alt="product.name" 
+          class="product-image" 
+          loading="lazy" 
+        />
       </div>
       <div class="product_right">
         <p>{{ product.name }}</p>
@@ -23,7 +29,11 @@
           <div class="options">
             <p>Цвет</p>
             <select @change="updateColorImage($event.target.value)">
-              <option v-for="color in product.product_colors" :key="color.color" :value="color.color">
+              <option 
+                v-for="color in product.product_colors" 
+                :key="color.color" 
+                :value="color.color"
+              >
                 {{ color.color }}
               </option>
             </select>
@@ -31,16 +41,37 @@
         </div>
         <p id="product-price" class="product-price">{{ product.price }} ₽</p>
         <div class="add-to-cart-container">
-          <button class="add-to-cart-button" @click="addToCart" aria-label="Добавить в корзину">
+          <button 
+            class="add-to-cart-button" 
+            @click="addToCart" 
+            aria-label="Добавить в корзину"
+          >
             В корзину
           </button>
           <div class="quantity-counter">
-            <button @click="selectedQuantity = Math.max(1, selectedQuantity - 1)" class="decrement-button" aria-label="Уменьшить количество">
-              <img src="@/assets/img/product/minus.svg" alt="Уменьшить количество" />
+            <!-- Ленивая загрузка иконок -->
+            <button 
+              @click="selectedQuantity = Math.max(1, selectedQuantity - 1)" 
+              class="decrement-button" 
+              aria-label="Уменьшить количество"
+            >
+              <img 
+                src="@/assets/img/product/minus.svg" 
+                alt="Уменьшить количество" 
+                loading="lazy" 
+              />
             </button>
             <span>{{ selectedQuantity }}</span>
-            <button @click="selectedQuantity++" class="increment-button" aria-label="Увеличить количество">
-              <img src="@/assets/img/product/plus.svg" alt="Увеличить количество" />
+            <button 
+              @click="selectedQuantity++" 
+              class="increment-button" 
+              aria-label="Увеличить количество"
+            >
+              <img 
+                src="@/assets/img/product/plus.svg" 
+                alt="Увеличить количество" 
+                loading="lazy" 
+              />
             </button>
           </div>
         </div>
@@ -71,14 +102,13 @@ export default {
     };
   },
   methods: {
-    // Загрузка данных о конкретном продукте
     async loadProduct() {
       try {
         const { data, error } = await supabase
           .from("products")
           .select("*, product_colors(color, image_url)") // Получаем цвета и их изображения
-          .eq("id", this.id)  // Фильтруем по ID продукта
-          .single();  // Ожидаем один продукт
+          .eq("id", this.id)
+          .single();
 
         if (error) {
           console.error("Ошибка загрузки продукта:", error);
@@ -91,26 +121,23 @@ export default {
         if (this.product.product_colors && this.product.product_colors.length > 0) {
           this.selectedColorImage = this.product.product_colors[0].image_url;
         } else {
-          this.selectedColorImage = null;  // Если цветов нет, не показываем изображение
+          this.selectedColorImage = null;
         }
       } catch (err) {
         console.error("Ошибка при загрузке продукта:", err);
       }
     },
-
-    // Обновление изображения при смене цвета
     updateColorImage(selectedColor) {
-      // Убедитесь, что product_colors существует и что выбранный цвет есть в этом списке
-      const selectedColorData = this.product.product_colors?.find(color => color.color === selectedColor);
+      const selectedColorData = this.product.product_colors?.find(
+        (color) => color.color === selectedColor
+      );
 
       if (selectedColorData) {
-        this.selectedColorImage = selectedColorData.image_url; // Устанавливаем изображение выбранного цвета
+        this.selectedColorImage = selectedColorData.image_url;
       } else {
-        this.selectedColorImage = null; // Если цвет не найден, устанавливаем пустое изображение
+        this.selectedColorImage = null;
       }
     },
-
-    // Добавление товара в корзину
     addToCart() {
       console.log(
         `Добавлено в корзину: ${this.selectedQuantity} шт. товара "${this.product.name}"`
@@ -118,10 +145,10 @@ export default {
     },
   },
   created() {
-    this.loadProduct(); // Загрузка продукта при создании компонента
+    this.loadProduct();
   },
   watch: {
-    "$route.params.id": "loadProduct", // Обновление данных, если изменится ID в маршруте
+    "$route.params.id": "loadProduct",
   },
 };
 </script>

@@ -1,8 +1,13 @@
 <template>
   <!-- Карточка продукта -->
   <section class="product-card">
-    <!-- Изображение продукта -->
-    <img :src="product.image_url" :alt="product.title" class="product-image" />
+    <!-- Изображение продукта с ленивой загрузкой -->
+    <img 
+      :src="product.image_url" 
+      :alt="product.title" 
+      class="product-image" 
+      loading="lazy" 
+    />
 
     <!-- Название продукта -->
     <h3 class="product-title">{{ product.title }}</h3>
