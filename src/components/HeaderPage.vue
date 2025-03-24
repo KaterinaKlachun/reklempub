@@ -16,7 +16,7 @@
           <li>
             <router-link to="/constructor">
               <button class="construct">
-                Конструкторр
+                Конструктор
                 <img src="@/assets/img/constructor/designer.svg" alt="designer">
               </button>
             </router-link>
