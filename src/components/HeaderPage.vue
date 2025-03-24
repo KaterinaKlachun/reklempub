@@ -14,6 +14,14 @@
           <li><router-link to="/catalog"><p>Каталог</p></router-link></li>
           <li><router-link to="/contacts"><p>Контакты</p></router-link></li>
           <li>
+            <router-link to="/constructor">
+              <button class="construct">
+                Конструктор
+                <img src="@/assets/img/constructor/designer.svg" alt="designer">
+              </button>
+            </router-link>
+          </li>
+          <li>
             <img
               src="@/assets/img/header/search.svg"
               alt="Поиск"
@@ -145,6 +153,28 @@ header a {
   font-family: medium;
   font-size: 1rem;
   color: black;
+}
+
+/* Кнопка конструктора */
+.construct {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Расстояние между текстом и иконкой */
+  background: #FFFFFF; /* Цвет фона */
+  border: none;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 10px; /* Закругление углов */
+  font-family: medium;
+  font-size: 0,75rem;
+  color: black;
+  
+  img {
+    width: 18px; /* Размер иконки */
+    height: 18px;
+  }
 }
 
 /* Иконки */
